@@ -1,13 +1,23 @@
 class Start extends Phaser.Scene {
   constructor() {
     super({ key: "Start" });
+    this.button = null;
   }
 
   preload() {
-    this.load.image("background", "assets/img/background.png");
+    this.load.image("button", "assets/img/24.png");
   }
   create() {
-    this.add.image(768, 432, "background").setScale(0.8);
+    this.button = this.add
+      .image(450, 250, "button")
+      .setOrigin(0, 0)
+      .setInteractive({ useHandCursor: true })
+      .on("pointerup", () => {
+        this.gameStart();
+      });
+  }
+  gameStart() {
+    this.scene.start("Scene1");
   }
 
   update() {}
