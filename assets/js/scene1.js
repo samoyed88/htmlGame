@@ -14,7 +14,7 @@ class Scene1 extends Phaser.Scene {
       .setScale(0.6) //0.8倍
       .setOrigin(0, 0); //將中心點訂為左上角
     const greenImage = this.add
-      .image(100, 250, "green")
+      .image(100, 100, "green")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.35) //0.35倍
       .setInteractive({ useHandCursor: true })
@@ -34,7 +34,7 @@ class Scene1 extends Phaser.Scene {
 
   next() {
     // 實現進入下一關的邏輯，例如：
-    this.scene.start("NextScene");
+    this.scene.start("Scene1_2");
   }
 
   disappear() {}

@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/start.js"></script>
     <script src="assets/js/scene1.js"></script>
+    <script src="assets/js/scene1_2.js"></script>
   </head>
   <body>
     <script>
       var config = {
         type: Phaser.AUTO,
-        width: 1188,
+        width: 1152,
         height: 648,
         physics: {
           default: "arcade",
@@ -21,7 +22,7 @@
             gravity: {},
           },
         },
-        scene: [Start, Scene1],
+        scene: [Start, Scene1, Scene1_2],
       };
       var game = new Phaser.Game(config);
     </script>
