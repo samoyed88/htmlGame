@@ -29,7 +29,7 @@ class Scene2_1 extends Phaser.Scene {
       .setScale(0.3) //0.35
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
-        yellowImage.destroy();
+        strawberryImage.destroy();
       });
 
     this.question = this.add.text(900, 325, "哈密瓜", {
