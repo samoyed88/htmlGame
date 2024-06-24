@@ -37,8 +37,8 @@ class Scene2_1 extends Phaser.Scene {
       color: "#00BBFF",
     });
   }
-
   next() {
-    this.scene.start("Scene3_1");
+    // 實現進入下一關的邏輯，例如：
+    this.scene.start("Scene2_2");
   }
 }
