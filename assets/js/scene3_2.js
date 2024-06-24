@@ -1,8 +1,7 @@
-class Scene3_1 extends Phaser.Scene {
+class Scene3_2 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene3_1" });
+    super({ key: "Scene3_2" });
   }
-
   preload() {
     this.load.image("background", "assets/img/background.png");
     this.load.image("aImg", "assets/img/底.png");
@@ -64,15 +63,15 @@ class Scene3_1 extends Phaser.Scene {
 
   next(question, a, b, chosen, image, text) {
     if (chosen === "a") {
-      if (a > question) {
-        this.scene.start("Scene3_2");
+      if (a < question) {
+        this.scene.start("Scene4_1");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "b") {
-      if (b > question) {
-        this.scene.start("Scene3_2");
+      if (b <= question) {
+        this.scene.start("Scene4_1");
       } else {
         image.destroy();
         text.destroy();
