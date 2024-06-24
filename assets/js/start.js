@@ -2,11 +2,13 @@ class Start extends Phaser.Scene {
   constructor() {
     super({ key: "Start" });
     this.button = null;
+    this.gamestart = null;
   }
 
   preload() {
     this.load.image("button", "assets/img/24.png");
   }
+
   create() {
     this.button = this.add
       .image(450, 250, "button")
@@ -15,6 +17,11 @@ class Start extends Phaser.Scene {
       .on("pointerup", () => {
         this.gameStart();
       });
+    
+    this.gamestart = this.add.text(480, 318, "開始遊戲", {
+      fontSize: "25px",
+      color: "#ffffff"
+    });
   }
 
   gameStart() {
