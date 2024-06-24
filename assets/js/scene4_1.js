@@ -58,41 +58,27 @@ class Scene4_1 extends Phaser.Scene {
     });
 
     leftImage.on("pointerup", () => {
-      this.next(
-        question,
-        correctAnswer,
-        wrongAnswer,
-        "correctAnswer",
-        leftImage,
-        leftText
-      );
+      this.next(isCorrectAnswerOnLeft, "left", leftImage, leftText);
     });
 
     rightImage.on("pointerup", () => {
-      this.next(
-        question,
-        correctAnswer,
-        wrongAnswer,
-        "wrongAnswer",
-        rightImage,
-        leftText
-      );
+      this.next(isCorrectAnswerOnLeft, "right", rightImage, leftText);
     });
   }
-  next(question, correctAnswer, wrongAnswer, chosen, image, text) {
-    if (chosen === "correctAnswer") {
-      if (correctAnswer == question) {
+  next(isCorrectAnswerOnLeft, chosen, image, text) {
+    if (chosen === "left") {
+      if (isCorrectAnswerOnLeft) {
         this.scene.start("Scene4_2");
       } else {
         image.destroy();
         text.destroy();
       }
-    } else if (chosen === "wrongAnswer") {
-      if (wrongAnswer != question) {
-        this.scene.start("Scene4_2");
-      } else {
+    } else if (chosen === "right") {
+      if (isCorrectAnswerOnLeft) {
         image.destroy();
         text.destroy();
+      } else {
+        this.scene.start("Scene4_2");
       }
     }
   }
