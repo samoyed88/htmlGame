@@ -37,7 +37,5 @@ class Scene1 extends Phaser.Scene {
     this.scene.start("Scene1_2");
   }
 
-  disappear() {}
-
   update() {}
 }
