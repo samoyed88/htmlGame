@@ -19,9 +19,9 @@ class Scene3_1 extends Phaser.Scene {
     const b = Math.floor(Math.random() * 99 + 1);
     let question = 0;
     if (a > b) {
-      question = Math.floor(Math.random() * (a - b) + b);
+      question = Math.floor(Math.random() * (a - b) + (b + 1));
     } else {
-      question = Math.floor(Math.random() * (b - a) + a);
+      question = Math.floor(Math.random() * (b - a) + (a + 1));
     }
 
     const aContainer = this.add.container(150, 200);
