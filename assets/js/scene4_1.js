@@ -62,7 +62,7 @@ class Scene4_1 extends Phaser.Scene {
     });
 
     rightImage.on("pointerup", () => {
-      this.next(isCorrectAnswerOnLeft, "right", rightImage, leftText);
+      this.next(isCorrectAnswerOnLeft, "right", rightImage, rightText);
     });
   }
   next(isCorrectAnswerOnLeft, chosen, image, text) {
