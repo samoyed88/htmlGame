@@ -37,4 +37,8 @@ class Scene2_1 extends Phaser.Scene {
       color: "#00BBFF",
     });
   }
+
+  next() {
+    this.scene.start("Scene3_1");
+  }
 }
