@@ -63,7 +63,7 @@ class Scene3_2 extends Phaser.Scene {
 
   next(question, a, b, chosen, image, text) {
     if (chosen === "a") {
-      if (a < question) {
+      if (a <= question) {
         this.scene.start("Scene4_1");
       } else {
         image.destroy();
