@@ -32,5 +32,10 @@ class Scene1_2 extends Phaser.Scene {
       });
   }
 
+  next() {
+    // 實現進入下一關的邏輯，例如：
+    this.scene.start("Scene2_1");
+  }
+
   update() {}
 }
