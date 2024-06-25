@@ -22,10 +22,10 @@ class Scene7_3 extends Phaser.Scene {
 
     // 定義四個位置
     let positions = [
-      { x: 200, y: 250 },
-      { x: 400, y: 250 },
-      { x: 200, y: 450 },
-      { x: 400, y: 450 },
+      { x: 325, y: 250 },
+      { x: 525, y: 250 },
+      { x: 325, y: 450 },
+      { x: 525, y: 450 },
     ];
 
     // 打亂位置數組
@@ -36,7 +36,7 @@ class Scene7_3 extends Phaser.Scene {
       { key: "cat", x: positions[0].x, y: positions[0].y },
       { key: "monkey", x: positions[1].x, y: positions[1].y },
       { key: "panda", x: positions[2].x, y: positions[2].y },
-      { key: "giraffe", x: positions[3].x, y: positions[3].y },
+      { key: "rabbit", x: positions[3].x, y: positions[3].y },
     ];
 
     this.add.image(1000, 400, "b-rabbit").setScale(0.2); // 題目圖片
