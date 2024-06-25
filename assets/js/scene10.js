@@ -11,7 +11,7 @@ class Scene10 extends Phaser.Scene {
     this.add
       .image(0, 0, "background")
       .setScale(0.6) // 0.6倍
-      .setOrigin(0, 0); // 将中心点定为左上角
+      .setOrigin(0, 0); // 將中心點設為左上角
 
     // 設定遊戲樣式和元素
     this.add
@@ -27,6 +27,8 @@ class Scene10 extends Phaser.Scene {
       .setOrigin(0.5);
 
     this.optionsGroup = this.add.group();
+
+    this.interactionEnabled = false; // 初始禁用互動
 
     this.startGame();
   }
@@ -51,6 +53,7 @@ class Scene10 extends Phaser.Scene {
 
   hideSequence() {
     this.numberText.setText("");
+    this.enableInteraction(); // 隱藏題目後啟用互動
   }
 
   displayOptions() {
@@ -95,10 +98,13 @@ class Scene10 extends Phaser.Scene {
     this.currentStep = 0;
     this.userSequence = [];
 
+    this.disableInteraction(); // 開始遊戲時禁用互動
     this.time.delayedCall(3000, this.hideSequence, [], this);
   }
 
   checkNumber(num, optionElement) {
+    if (!this.interactionEnabled) return; // 如果未啟用互動則返回
+
     if (this.sequence.length === 0) return;
 
     this.userSequence.push(num);
@@ -108,6 +114,7 @@ class Scene10 extends Phaser.Scene {
       optionElement.setVisible(false);
       if (this.currentStep === this.sequence.length - 1) {
         this.messageText.setText("恭喜你，答對了！").setColor("green");
+        this.disableInteraction(); // 答對後禁用互動
       } else {
         this.currentStep++;
       }
@@ -124,6 +131,15 @@ class Scene10 extends Phaser.Scene {
       .getChildren()
       .forEach((option) => option.setVisible(true));
     this.displaySequence();
+    this.disableInteraction(); // 重置遊戲時禁用互動
     this.time.delayedCall(3000, this.hideSequence, [], this);
+  }
+
+  disableInteraction() {
+    this.interactionEnabled = false;
+  }
+
+  enableInteraction() {
+    this.interactionEnabled = true;
   }
 }
