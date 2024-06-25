@@ -81,7 +81,7 @@ class Scene5_2 extends Phaser.Scene {
 
     // 创建c方块
     const cAnswer = var3 ? correctAnswer : wrongAnswer3;
-    const cContainer = this.add.container(200, 480);
+    const cContainer = this.add.container(200, 230);
     const cImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
