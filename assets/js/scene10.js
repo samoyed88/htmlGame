@@ -108,6 +108,7 @@ class Scene10 extends Phaser.Scene {
     if (this.sequence.length === 0) return;
 
     this.userSequence.push(num);
+    optionElement.setScale(2); // 將點選的數字變大到2倍
     if (
       this.userSequence[this.currentStep] === this.sequence[this.currentStep]
     ) {
@@ -120,7 +121,10 @@ class Scene10 extends Phaser.Scene {
       }
     } else {
       this.messageText.setText("抱歉，答錯了。再試一次！").setColor("red");
-      this.resetGame();
+      this.time.delayedCall(3000, () => {
+        this.messageText.setText("");
+        this.resetGame();
+      }, [], this);
     }
   }
 
@@ -129,7 +133,10 @@ class Scene10 extends Phaser.Scene {
     this.userSequence = [];
     this.optionsGroup
       .getChildren()
-      .forEach((option) => option.setVisible(true));
+      .forEach((option) => {
+        option.setVisible(true);
+        option.setScale(1); // 重置數字大小
+      });
     this.displaySequence();
     this.disableInteraction(); // 重置遊戲時禁用互動
     this.time.delayedCall(3000, this.hideSequence, [], this);
