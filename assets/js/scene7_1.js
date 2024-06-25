@@ -22,10 +22,10 @@ class Scene7_1 extends Phaser.Scene {
 
     // 白色區域顯示四張圖片
     let options = [
-      { key: "cat", x: 325, y: 250 },
-      { key: "monkey", x: 525, y: 250 },
-      { key: "panda", x: 325, y: 450 },
-      { key: "elephant", x: 525, y: 450 },
+      { key: "cat", x: 200, y: 250 },
+      { key: "monkey", x: 400, y: 250 },
+      { key: "panda", x: 200, y: 450 },
+      { key: "elephant", x: 400, y: 450 },
     ];
     this.add.image(1000, 400, "b-elephant").setScale(0.2); // 題目圖片
 
@@ -44,7 +44,7 @@ class Scene7_1 extends Phaser.Scene {
 
     this.checkAnswer = function (selectedKey) {
       if (selectedKey === correctAnswer) {
-        this.scene.start("Scene8_1"); // 如果答案正确，进入下一个场景
+        this.scene.start("Scene7_2"); // 如果答案正确，进入下一个场景
       } else {
         // 如果答案错误，找到错误的选项图片并销毁
         let wrongOption = optionImages.find(
