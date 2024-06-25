@@ -19,6 +19,7 @@ class Scene7_1 extends Phaser.Scene {
       .setOrigin(0, 0); // 将中心点定为左上角
 
     let correctAnswer = "elephant"; // 正確答案的 key
+
     // 定義四個位置
     let positions = [
       { x: 200, y: 250 },
