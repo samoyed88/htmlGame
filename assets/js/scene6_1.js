@@ -44,11 +44,11 @@ class Scene6_1 extends Phaser.Scene {
 
     // 显示图像
     items.forEach((item, index) => {
-      const x = 100 + (index % 4) * 200; // 修改：每行排列4张图像
-      const y = 100 + Math.floor(index / 4) * 200; // 修改：每行排列4张图像
+      const x = 48 + (index % 4) * 200; // 修改：每行排列4张图像
+      const y = 156 + Math.floor(index / 4) * 200; // 修改：每行排列4张图像
       const image = this.add.image(x, y, item.key)
         .setOrigin(0, 0)
-        .setScale(0.2)
+        .setScale(0.18)
         .setInteractive({ useHandCursor: true });
 
       image.data = item; // 存储数据以便后续使用
