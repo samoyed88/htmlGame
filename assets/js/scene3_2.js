@@ -23,7 +23,7 @@ class Scene3_2 extends Phaser.Scene {
       question = Math.floor(Math.random() * (b - a) + a);
     }
 
-    const aContainer = this.add.container(150, 200);
+    const aContainer = this.add.container(190, 360);
     const aImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
@@ -35,7 +35,7 @@ class Scene3_2 extends Phaser.Scene {
 
     aContainer.add([aImage, aText]);
 
-    const bContainer = this.add.container(500, 200);
+    const bContainer = this.add.container(500, 360);
     const bImage = this.add
       .image(0, 0, "bImg")
       .setScale(0.2)
