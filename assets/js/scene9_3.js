@@ -1,12 +1,12 @@
-class Scene9_2 extends Phaser.Scene {
+class Scene9_3 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene9_2" });
+    super({ key: "Scene9_3" });
   }
 
   preload() {
     this.load.image("background", "assets/img/background.png");
-    this.load.image("斧頭", "assets/img/斧頭.png");
-    this.load.image("曬衣夾", "assets/img/曬衣夾.png");
+    this.load.image("鍋蓋", "assets/img/鍋蓋.png");
+    this.load.image("雨傘", "assets/img/雨傘.png");
     this.load.image("球棒", "assets/img/球棒.png");
     this.load.image("衣架", "assets/img/衣架.png");
     this.load.image("確認", "assets/img/確認.png");
@@ -32,8 +32,8 @@ class Scene9_2 extends Phaser.Scene {
 
     // 白色區域顯示四張圖片，並分配隨機位置
     let items = [
-      { key: "斧頭", x: positions[0].x, y: positions[0].y },
-      { key: "曬衣夾", x: positions[1].x, y: positions[1].y },
+      { key: "鍋蓋", x: positions[0].x, y: positions[0].y },
+      { key: "雨傘", x: positions[1].x, y: positions[1].y },
       { key: "球棒", x: positions[2].x, y: positions[2].y },
       { key: "衣架", x: positions[3].x, y: positions[3].y },
     ];
@@ -81,7 +81,7 @@ class Scene9_2 extends Phaser.Scene {
   // 檢查答案
   checkAnswer() {
     // 正確答案
-    let correctItems = ["衣架", "曬衣夾"];
+    let correctItems = ["鍋蓋"];
 
     // 檢查選擇的物品是否正確
     let isCorrect =
@@ -90,7 +90,7 @@ class Scene9_2 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Scene9_3");
+      this.scene.start("Scene10");
     } else {
       this.showPopup("錯誤");
     }
