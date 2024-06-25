@@ -17,10 +17,10 @@ class Start extends Phaser.Scene {
       .on("pointerup", () => {
         this.gameStart();
       });
-    
+
     this.gamestart = this.add.text(480, 318, "開始遊戲", {
       fontSize: "25px",
-      color: "#ffffff"
+      color: "#ffffff",
     });
     this.button = this.add
       .image(450, 345, "button")
@@ -29,10 +29,10 @@ class Start extends Phaser.Scene {
       .on("pointerup", () => {
         this.gameStart2();
       });
-    
+
     this.gamestart2 = this.add.text(480, 415, "遊戲說明", {
       fontSize: "25px",
-      color: "#ffffff"
+      color: "#ffffff",
     });
   }
 
