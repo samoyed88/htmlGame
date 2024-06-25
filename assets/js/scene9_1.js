@@ -19,13 +19,25 @@ class Scene9_1 extends Phaser.Scene {
       .setScale(0.6) // 0.6倍
       .setOrigin(0, 0); // 將中心點設為左上角
 
-    // 定義物品和它們的位置
-    let items = [
-      { key: "雨傘", x: 150, y: 250 },
-      { key: "雨衣", x: 500, y: 250 },
-      { key: "螺絲起子", x: 150, y: 500 },
-      { key: "遙控器", x: 500, y: 500 },
+    // 定義四個位置
+    let positions = [
+      { x: 150, y: 250 },
+      { x: 500, y: 250 },
+      { x: 150, y: 500 },
+      { x: 500, y: 500 },
     ];
+
+    // 打亂位置數組
+    this.shuffleArray(positions);
+
+    // 白色區域顯示四張圖片，並分配隨機位置
+    let items = [
+      { key: "雨傘", x: positions[0].x, y: positions[0].y },
+      { key: "雨衣", x: positions[1].x, y: positions[1].y },
+      { key: "螺絲起子", x: positions[2].x, y: positions[2].y },
+      { key: "遙控器", x: positions[3].x, y: positions[3].y },
+    ];
+    // 定義物品和它們的位置
 
     // 用於儲存玩家選擇的物品
     this.selectedItems = [];
@@ -115,5 +127,13 @@ class Scene9_1 extends Phaser.Scene {
       [],
       this
     );
+  }
+
+  // 打亂數組的函數
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 }
