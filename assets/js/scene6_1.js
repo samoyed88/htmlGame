@@ -93,6 +93,8 @@ class Scene6_1 extends Phaser.Scene {
       }
     }
   
+    //下一關的介面
+
     showCongratulations() {
       // 创建覆盖层
       const overlay = this.add.graphics();
@@ -129,6 +131,8 @@ class Scene6_1 extends Phaser.Scene {
       });
     }
   
+    //介面結束
+
     nextScene() {
       this.scene.start("Scene7_1"); // 切换到下一关场景
     }
