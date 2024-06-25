@@ -48,8 +48,8 @@ class Scene3_1 extends Phaser.Scene {
 
     bContainer.add([bImage, bText]);
 
-    this.add.text(900, 325, question, {
-      fontSize: "50px",
+    this.add.text(950, 355, question, {
+      fontSize: "80px",
       color: "#00BBFF",
     });
 
