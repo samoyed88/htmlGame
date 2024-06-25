@@ -9,6 +9,7 @@ class Scene9_1 extends Phaser.Scene {
     this.load.image("雨衣", "assets/img/雨衣.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");
     this.load.image("遙控器", "assets/img/遙控器.png");
+    this.load.image("確認", "assets/img/確認.png");
   }
 
   create() {
@@ -39,11 +40,13 @@ class Scene9_1 extends Phaser.Scene {
       });
     });
 
-    // 顯示提交按鈕
-    let submitButton = this.add
-      .text(750, 450, "提交", { fontSize: "32px", fill: "#000" })
-      .setInteractive()
-      .on("pointerdown", () => this.checkAnswer());
+    this.add
+      .image(750, 380, "確認")
+      .setScale(0.3) // 0.3倍
+      .setInteractive({ useHandCursor: true })
+      .on("pointerup", () => {
+        this.checkAnswer();
+      });
 
     // 創建彈出視窗
     this.createPopup();
@@ -76,7 +79,7 @@ class Scene9_1 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Scene9_2");
+      this.scene.start("Scene10");
     } else {
       this.showPopup("錯誤");
     }
@@ -86,10 +89,14 @@ class Scene9_1 extends Phaser.Scene {
   createPopup() {
     this.popup = this.add.container(400, 300);
     let popupBackground = this.add.graphics();
-    popupBackground.fillStyle(0x000000, 0.8);
+    popupBackground.fillStyle(0x00ffff, 0.8);
     popupBackground.fillRect(-150, -100, 300, 200);
     let popupText = this.add
-      .text(0, 0, "", { fontSize: "32px", fill: "#fff" })
+      .text(0, 0, "", {
+        fontSize: "32px",
+        fill: "#f00",
+        padding: { top: 10, bottom: 10, left: 10, right: 10 },
+      })
       .setOrigin(0.5);
     this.popup.add([popupBackground, popupText]);
     this.popup.setVisible(false);

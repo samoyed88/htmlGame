@@ -1,43 +1,33 @@
 class Start extends Phaser.Scene {
   constructor() {
     super({ key: "Start" });
-    this.button = null;
-    this.gamestart = null;
   }
 
   preload() {
-    this.load.image("button", "assets/img/24.png");
+    this.load.image("illustrate", "assets/img/illustrate.png");
+    this.load.image("start", "assets/img/start.png");
   }
 
   create() {
-    this.button = this.add
-      .image(450, 250, "button")
-      .setOrigin(0, 0)
+    this.add
+      .image(530, 278, "start")
+      .setScale(0.47) //0.35倍
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.gameStart();
       });
 
-    this.gamestart = this.add.text(480, 318, "開始遊戲", {
-      fontSize: "25px",
-      color: "#ffffff",
-    });
-    this.button = this.add
-      .image(450, 345, "button")
-      .setOrigin(0, 0)
+    this.illustrate = this.add
+      .image(530, 385, "illustrate")
+      .setScale(0.38)
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.gameStart2();
       });
-
-    this.gamestart2 = this.add.text(480, 415, "遊戲說明", {
-      fontSize: "25px",
-      color: "#ffffff",
-    });
   }
 
   gameStart() {
-    this.scene.start("Scene1_1");
+    this.scene.start("Scene9_1");
   }
   gameStart2() {
     this.scene.start("instructions");
