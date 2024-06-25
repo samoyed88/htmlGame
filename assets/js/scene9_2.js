@@ -5,10 +5,11 @@ class Scene9_2 extends Phaser.Scene {
 
   preload() {
     this.load.image("background", "assets/img/background.png");
-    this.load.image("雨傘", "assets/img/雨傘.png");
-    this.load.image("雨衣", "assets/img/雨衣.png");
-    this.load.image("螺絲起子", "assets/img/螺絲起子.png");
-    this.load.image("遙控器", "assets/img/遙控器.png");
+    this.load.image("斧頭", "assets/img/斧頭.png");
+    this.load.image("曬衣夾", "assets/img/曬衣夾.png");
+    this.load.image("球棒", "assets/img/球棒.png");
+    this.load.image("衣架", "assets/img/衣架.png");
+    this.load.image("確認", "assets/img/確認.png");
   }
 
   create() {
@@ -18,12 +19,23 @@ class Scene9_2 extends Phaser.Scene {
       .setScale(0.6) // 0.6倍
       .setOrigin(0, 0); // 將中心點設為左上角
 
-    // 定義物品和它們的位置
+    // 定義四個位置
+    let positions = [
+      { x: 150, y: 250 },
+      { x: 500, y: 250 },
+      { x: 150, y: 500 },
+      { x: 500, y: 500 },
+    ];
+
+    // 打亂位置數組
+    this.shuffleArray(positions);
+
+    // 白色區域顯示四張圖片，並分配隨機位置
     let items = [
-      { key: "雨傘", x: 150, y: 250 },
-      { key: "雨衣", x: 500, y: 250 },
-      { key: "螺絲起子", x: 150, y: 500 },
-      { key: "遙控器", x: 500, y: 500 },
+      { key: "斧頭", x: positions[0].x, y: positions[0].y },
+      { key: "曬衣夾", x: positions[1].x, y: positions[1].y },
+      { key: "球棒", x: positions[2].x, y: positions[2].y },
+      { key: "衣架", x: positions[3].x, y: positions[3].y },
     ];
 
     // 用於儲存玩家選擇的物品
@@ -39,11 +51,13 @@ class Scene9_2 extends Phaser.Scene {
       });
     });
 
-    // 顯示提交按鈕
-    let submitButton = this.add
-      .text(750, 450, "提交", { fontSize: "32px", fill: "#000" })
-      .setInteractive()
-      .on("pointerdown", () => this.checkAnswer());
+    this.add
+      .image(750, 380, "確認")
+      .setScale(0.3) // 0.3倍
+      .setInteractive({ useHandCursor: true })
+      .on("pointerup", () => {
+        this.checkAnswer();
+      });
 
     // 創建彈出視窗
     this.createPopup();
@@ -67,7 +81,7 @@ class Scene9_2 extends Phaser.Scene {
   // 檢查答案
   checkAnswer() {
     // 正確答案
-    let correctItems = ["雨傘", "雨衣"];
+    let correctItems = ["衣架", "曬衣夾"];
 
     // 檢查選擇的物品是否正確
     let isCorrect =
@@ -76,7 +90,7 @@ class Scene9_2 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Scene9_2");
+      this.scene.start("Scene10");
     } else {
       this.showPopup("錯誤");
     }
@@ -108,5 +122,13 @@ class Scene9_2 extends Phaser.Scene {
       [],
       this
     );
+  }
+
+  // 打亂數組的函數
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 }

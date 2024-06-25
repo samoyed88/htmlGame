@@ -37,7 +37,6 @@ class Scene9_1 extends Phaser.Scene {
       { key: "螺絲起子", x: positions[2].x, y: positions[2].y },
       { key: "遙控器", x: positions[3].x, y: positions[3].y },
     ];
-    // 定義物品和它們的位置
 
     // 用於儲存玩家選擇的物品
     this.selectedItems = [];
@@ -91,7 +90,7 @@ class Scene9_1 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Scene10");
+      this.scene.start("Scene9_2");
     } else {
       this.showPopup("錯誤");
     }
