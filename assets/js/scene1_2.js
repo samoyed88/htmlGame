@@ -16,7 +16,7 @@ class Scene1_2 extends Phaser.Scene {
       .setOrigin(0, 0); //將中心點訂為左上角
 
     const greenImage = this.add
-      .image(100, 100, "green")
+      .image(15, 100, "green")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.35) //0.35倍
       .setInteractive({ useHandCursor: true })
@@ -25,7 +25,7 @@ class Scene1_2 extends Phaser.Scene {
       });
 
     const yellowImage = this.add
-      .image(500, 100, "yellow")
+      .image(490, 100, "yellow")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.35) //0.35倍
       .setInteractive({ useHandCursor: true })
@@ -33,8 +33,8 @@ class Scene1_2 extends Phaser.Scene {
         this.next();
       });
 
-      const redImage = this.add
-      .image(297, 300, "red")
+    const redImage = this.add
+      .image(257, 300, "red")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.35) //0.35倍
       .setInteractive({ useHandCursor: true })

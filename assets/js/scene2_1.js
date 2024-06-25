@@ -15,7 +15,7 @@ class Scene2_1 extends Phaser.Scene {
       .setScale(0.6) //0.8倍
       .setOrigin(0, 0); //將中心點訂為左上角
     const cantaloupeImage = this.add
-      .image(100, 150, "cantaloupe")
+      .image(80, 180, "cantaloupe")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.3) //0.3倍
       .setInteractive({ useHandCursor: true })
@@ -24,7 +24,7 @@ class Scene2_1 extends Phaser.Scene {
       });
 
     const strawberryImage = this.add
-      .image(500, 150, "strawberry")
+      .image(480, 180, "strawberry")
       .setOrigin(0, 0) //將中心點訂為左上角
       .setScale(0.3) //0.35
       .setInteractive({ useHandCursor: true })

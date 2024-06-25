@@ -54,7 +54,7 @@ class Scene4_2 extends Phaser.Scene {
 
     // 创建a方块
     const aAnswer = var1 ? correctAnswer : wrongAnswer;
-    const aContainer = this.add.container(150, 200);
+    const aContainer = this.add.container(200, 230);
     const aImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
@@ -68,7 +68,7 @@ class Scene4_2 extends Phaser.Scene {
 
     // 创建b方块
     const bAnswer = var2 ? correctAnswer : wrongAnswer2;
-    const bContainer = this.add.container(550, 200);
+    const bContainer = this.add.container(600, 230);
     const bImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
@@ -81,7 +81,7 @@ class Scene4_2 extends Phaser.Scene {
 
     // 创建c方块
     const cAnswer = var3 ? correctAnswer : wrongAnswer3;
-    const cContainer = this.add.container(150, 450);
+    const cContainer = this.add.container(200, 480);
     const cImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
@@ -94,7 +94,7 @@ class Scene4_2 extends Phaser.Scene {
 
     // 创建d方块
     const dAnswer = var4 ? correctAnswer : wrongAnswer4;
-    const dContainer = this.add.container(550, 450);
+    const dContainer = this.add.container(600, 480);
     const dImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)

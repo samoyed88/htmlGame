@@ -26,7 +26,7 @@ class Scene5_1 extends Phaser.Scene {
 
     // 创建左侧方块
     const leftAnswer = isCorrectAnswerOnLeft ? correctAnswer : wrongAnswer;
-    const leftContainer = this.add.container(150, 200);
+    const leftContainer = this.add.container(190, 360);
     const leftImage = this.add
       .image(0, 0, "aImg")
       .setScale(0.2)
@@ -40,7 +40,7 @@ class Scene5_1 extends Phaser.Scene {
 
     // 创建右侧方块
     const rightAnswer = isCorrectAnswerOnLeft ? wrongAnswer : correctAnswer;
-    const rightContainer = this.add.container(500, 200);
+    const rightContainer = this.add.container(500, 360);
     const rightImage = this.add
       .image(0, 0, "bImg")
       .setScale(0.2)
