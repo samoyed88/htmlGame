@@ -6,9 +6,11 @@ class Scene9_3 extends Phaser.Scene {
   preload() {
     this.load.image("background", "assets/img/background.png");
     this.load.image("鍋蓋", "assets/img/鍋蓋.png");
+    this.load.image("鍋鏟", "assets/img/鍋鏟.png");
+    this.load.image("電鍋", "assets/img/電鍋.png");
+    this.load.image("水管", "assets/img/水管.png");
+    this.load.image("掃把", "assets/img/掃把.png");
     this.load.image("雨傘", "assets/img/雨傘.png");
-    this.load.image("球棒", "assets/img/球棒.png");
-    this.load.image("衣架", "assets/img/衣架.png");
     this.load.image("確認", "assets/img/確認.png");
   }
 
@@ -19,12 +21,14 @@ class Scene9_3 extends Phaser.Scene {
       .setScale(0.6) // 0.6倍
       .setOrigin(0, 0); // 將中心點設為左上角
 
-    // 定義四個位置
+    // 定義六個位置
     let positions = [
       { x: 150, y: 250 },
-      { x: 500, y: 250 },
+      { x: 350, y: 250 },
       { x: 150, y: 500 },
-      { x: 500, y: 500 },
+      { x: 350, y: 500 },
+      { x: 550, y: 250 },
+      { x: 550, y: 500 },
     ];
 
     // 打亂位置數組
@@ -33,9 +37,11 @@ class Scene9_3 extends Phaser.Scene {
     // 白色區域顯示四張圖片，並分配隨機位置
     let items = [
       { key: "鍋蓋", x: positions[0].x, y: positions[0].y },
-      { key: "雨傘", x: positions[1].x, y: positions[1].y },
-      { key: "球棒", x: positions[2].x, y: positions[2].y },
-      { key: "衣架", x: positions[3].x, y: positions[3].y },
+      { key: "鍋鏟", x: positions[1].x, y: positions[1].y },
+      { key: "電鍋", x: positions[2].x, y: positions[2].y },
+      { key: "水管", x: positions[3].x, y: positions[3].y },
+      { key: "掃把", x: positions[4].x, y: positions[4].y },
+      { key: "雨傘", x: positions[5].x, y: positions[5].y },
     ];
 
     // 用於儲存玩家選擇的物品
@@ -81,7 +87,7 @@ class Scene9_3 extends Phaser.Scene {
   // 檢查答案
   checkAnswer() {
     // 正確答案
-    let correctItems = ["鍋蓋"];
+    let correctItems = ["鍋蓋", "鍋鏟", "電鍋"];
 
     // 檢查選擇的物品是否正確
     let isCorrect =
