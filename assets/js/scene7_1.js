@@ -19,14 +19,25 @@ class Scene7_1 extends Phaser.Scene {
       .setOrigin(0, 0); // 将中心点定为左上角
 
     let correctAnswer = "elephant"; // 正確答案的 key
-
-    // 白色區域顯示四張圖片
-    let options = [
-      { key: "cat", x: 200, y: 250 },
-      { key: "monkey", x: 400, y: 250 },
-      { key: "panda", x: 200, y: 450 },
-      { key: "elephant", x: 400, y: 450 },
+    // 定義四個位置
+    let positions = [
+      { x: 200, y: 250 },
+      { x: 400, y: 250 },
+      { x: 200, y: 450 },
+      { x: 400, y: 450 },
     ];
+
+    // 打亂位置數組
+    this.shuffleArray(positions);
+
+    // 白色區域顯示四張圖片，並分配隨機位置
+    let options = [
+      { key: "cat", x: positions[0].x, y: positions[0].y },
+      { key: "monkey", x: positions[1].x, y: positions[1].y },
+      { key: "panda", x: positions[2].x, y: positions[2].y },
+      { key: "elephant", x: positions[3].x, y: positions[3].y },
+    ];
+
     this.add.image(1000, 400, "b-elephant").setScale(0.2); // 題目圖片
 
     let optionImages = [];
@@ -55,5 +66,13 @@ class Scene7_1 extends Phaser.Scene {
         }
       }
     };
+  }
+
+  // 打亂數組的函數
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
   }
 }
