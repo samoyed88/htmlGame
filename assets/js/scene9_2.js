@@ -16,7 +16,7 @@ class Scene9_2 extends Phaser.Scene {
     // 加載背景圖片
     this.add
       .image(0, 0, "background")
-      .setScale(0.6) // 0.6倍
+      .setScale(1) // 0.6倍
       .setOrigin(0, 0); // 將中心點設為左上角
 
     // 定義四個位置
