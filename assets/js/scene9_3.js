@@ -23,12 +23,12 @@ class Scene9_3 extends Phaser.Scene {
 
     // 定義六個位置
     let positions = [
-      { x: 150, y: 250 },
-      { x: 350, y: 250 },
-      { x: 150, y: 500 },
-      { x: 350, y: 500 },
-      { x: 550, y: 250 },
-      { x: 550, y: 500 },
+      { x: 300, y: 380 },
+      { x: 650, y: 380 },
+      { x: 300, y: 820 },
+      { x: 650, y: 820 },
+      { x: 1000, y: 380 },
+      { x: 1000, y: 820 },
     ];
 
     // 打亂位置數組
@@ -50,7 +50,7 @@ class Scene9_3 extends Phaser.Scene {
     // 加載和顯示每個物品，並使它們可點擊
     items.forEach((item) => {
       let obj = this.add.image(item.x, item.y, item.key).setInteractive();
-      obj.setScale(0.2);
+      obj.setScale(0.3);
       obj.setData("name", item.key);
       obj.on("pointerdown", () => {
         this.toggleSelection(obj);
@@ -58,7 +58,7 @@ class Scene9_3 extends Phaser.Scene {
     });
 
     this.add
-      .image(750, 380, "確認")
+      .image(1280, 595, "確認")
       .setScale(0.3) // 0.3倍
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
