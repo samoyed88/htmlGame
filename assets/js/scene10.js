@@ -8,10 +8,7 @@ class Scene10 extends Phaser.Scene {
   }
 
   create() {
-    this.add
-      .image(0, 0, "background")
-      .setScale(0.6) // 0.6倍
-      .setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
 
     // 設定遊戲樣式和元素
     this.add
@@ -121,22 +118,25 @@ class Scene10 extends Phaser.Scene {
       }
     } else {
       this.messageText.setText("抱歉，答錯了。再試一次！").setColor("red");
-      this.time.delayedCall(3000, () => {
-        this.messageText.setText("");
-        this.resetGame();
-      }, [], this);
+      this.time.delayedCall(
+        3000,
+        () => {
+          this.messageText.setText("");
+          this.resetGame();
+        },
+        [],
+        this
+      );
     }
   }
 
   resetGame() {
     this.currentStep = 0;
     this.userSequence = [];
-    this.optionsGroup
-      .getChildren()
-      .forEach((option) => {
-        option.setVisible(true);
-        option.setScale(1); // 重置數字大小
-      });
+    this.optionsGroup.getChildren().forEach((option) => {
+      option.setVisible(true);
+      option.setScale(1); // 重置數字大小
+    });
     this.displaySequence();
     this.disableInteraction(); // 重置遊戲時禁用互動
     this.time.delayedCall(3000, this.hideSequence, [], this);

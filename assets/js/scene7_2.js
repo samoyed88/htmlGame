@@ -13,10 +13,7 @@ class Scene7_2 extends Phaser.Scene {
   }
 
   create() {
-    this.add
-      .image(0, 0, "background")
-      .setScale(0.6) // 0.6倍
-      .setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); // 将中心点定为左上角
 
     let correctAnswer = "giraffe"; // 正確答案的 key
 

@@ -14,10 +14,7 @@ class Scene9_1 extends Phaser.Scene {
 
   create() {
     // 加載背景圖片
-    this.add
-      .image(0, 0, "background")
-      .setScale(1) // 0.6倍
-      .setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
 
     // 定義四個位置
     let positions = [

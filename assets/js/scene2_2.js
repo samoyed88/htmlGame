@@ -12,10 +12,7 @@ class Scene2_2 extends Phaser.Scene {
     this.load.image("apple", "assets/img/蘋果.png");
   }
   create() {
-    this.add
-      .image(0, 0, "background")
-      .setScale(0.6) //0.8倍
-      .setOrigin(0, 0); //將中心點訂為左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); //將中心點訂為左上角
 
     const cantaloupeImage = this.add
       .image(100, 120, "cantaloupe")

@@ -12,10 +12,7 @@ class Scene4_2 extends Phaser.Scene {
   }
 
   create() {
-    this.add
-      .image(0, 0, "background")
-      .setScale(0.6) // 0.6倍
-      .setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); // 将中心点定为左上角
 
     const num1 = Math.floor(Math.random() * 99 + 1);
     const num2 = Math.floor(Math.random() * 99 + 1);

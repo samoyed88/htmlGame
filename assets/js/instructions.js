@@ -9,12 +9,9 @@ class instructions extends Phaser.Scene {
     this.load.image("返回鍵", "assets/img/返回鍵.png");
   }
   create() {
-    this.add
-      .image(0, 0, "遊戲說明")
-      .setScale(0.6) //0.8倍
-      .setOrigin(0, 0); //將中心點訂為左上角
+    this.add.image(0, 0, "遊戲說明").setOrigin(0, 0); //將中心點訂為左上角
     this.button = this.add
-      .image(140, 340, "返回鍵")
+      .image(540, 700, "返回鍵")
       .setOrigin(0, 0)
       .setScale(0.45)
       .setInteractive({ useHandCursor: true })

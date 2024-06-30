@@ -9,10 +9,7 @@ class Scene1_1 extends Phaser.Scene {
     this.load.image("yellow", "assets/img/yellow.png");
   }
   create() {
-    this.add
-      .image(0, 0, "background")
-      .setScale(0.6) //0.8倍
-      .setOrigin(0, 0); //將中心點訂為左上角
+    this.add.image(0, 0, "background").setOrigin(0, 0); //將中心點訂為左上角
     const greenImage = this.add
       .image(70, 170, "green")
       .setOrigin(0, 0) //將中心點訂為左上角
