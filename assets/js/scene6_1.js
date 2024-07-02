@@ -49,7 +49,7 @@ class Scene6_1 extends Phaser.Scene {
         .setScale(0.18)
         .setInteractive({ useHandCursor: true });
 
-      image.data = item; // 存储数据以便后续使用
+      image.pair = item.pair; // 存储配对信息
 
       image.on("pointerup", () => this.handleImageClick(image));
     });
@@ -66,7 +66,7 @@ class Scene6_1 extends Phaser.Scene {
       this.selectedImage = null;
     } else {
       // 选择第二个图像并进行配对检查
-      if (this.selectedImage.data.pair === image.data.key) {
+      if (this.selectedImage.pair === image.texture.key) {
         // 配对成功，隐藏两张图像
         const firstImage = this.selectedImage;
         const secondImage = image;
@@ -127,21 +127,15 @@ class Scene6_1 extends Phaser.Scene {
         {
           fontSize: "30px",
           color: "#ffffff",
-          backgroundColor: "#952b34",
-          padding: { left: 20, right: 20, top: 10, bottom: 10 }, // 增加填充
+          backgroundColor: "#00bfff",
+          padding: { left: 20, right: 20, top: 10, bottom: 10 },
         }
       )
       .setOrigin(0.5, 0.5)
       .setInteractive({ useHandCursor: true });
 
     nextButton.on("pointerup", () => {
-      this.scene.start("Scene7_1");
+      this.scene.start("Scene7_1"); // 跳转到 Scene7_1 场景
     });
-  }
-
-  //介面結束
-
-  nextScene() {
-    this.scene.start("Scene7_1"); // 切换到下一关场景
   }
 }

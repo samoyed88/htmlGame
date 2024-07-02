@@ -53,7 +53,7 @@ class Scene7_3 extends Phaser.Scene {
 
     this.checkAnswer = function (selectedKey) {
       if (selectedKey === correctAnswer) {
-        this.scene.start("Scene8_1"); // 如果答案正确，进入下一个场景
+        this.scene.start("Scene9_1"); // 如果答案正确，进入下一个场景
       } else {
         // 如果答案错误，找到错误的选项图片并销毁
         let wrongOption = optionImages.find(
