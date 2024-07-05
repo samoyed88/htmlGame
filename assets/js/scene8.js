@@ -1,6 +1,6 @@
-class Scene5_2 extends Phaser.Scene {
+class Scene8 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene5_2" });
+    super({ key: "Scene8" });
   }
   preload() {
     this.load.image("background", "assets/img/background.png");
@@ -128,28 +128,28 @@ class Scene5_2 extends Phaser.Scene {
   next(var0, chosen, image, text) {
     if (chosen === "a") {
       if (var0) {
-        this.scene.start("Scene6_1");
+        this.scene.start("Scene9");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "b") {
       if (var0) {
-        this.scene.start("Scene6_1");
+        this.scene.start("Scene9");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "c") {
       if (var0) {
-        this.scene.start("Scene6_1");
+        this.scene.start("Scene9");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "d") {
       if (var0) {
-        this.scene.start("Scene6_1");
+        this.scene.start("Scene9");
       } else {
         image.destroy();
         text.destroy();

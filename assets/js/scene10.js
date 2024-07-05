@@ -5,148 +5,131 @@ class Scene10 extends Phaser.Scene {
 
   preload() {
     this.load.image("background", "assets/img/background.png");
+    this.load.image("雨傘", "assets/img/雨傘.png");
+    this.load.image("雨衣", "assets/img/雨衣.png");
+    this.load.image("螺絲起子", "assets/img/螺絲起子.png");
+    this.load.image("遙控器", "assets/img/遙控器.png");
+    this.load.image("確認", "assets/img/確認.png");
   }
 
   create() {
+    // 加載背景圖片
     this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
 
-    // 設定遊戲樣式和元素
+    // 定義四個位置
+    let positions = [
+      { x: 400, y: 370 },
+      { x: 900, y: 370 },
+      { x: 400, y: 820 },
+      { x: 900, y: 820 },
+    ];
+
+    // 打亂位置數組
+    this.shuffleArray(positions);
+
+    // 白色區域顯示四張圖片，並分配隨機位置
+    let items = [
+      { key: "雨傘", x: positions[0].x, y: positions[0].y },
+      { key: "雨衣", x: positions[1].x, y: positions[1].y },
+      { key: "螺絲起子", x: positions[2].x, y: positions[2].y },
+      { key: "遙控器", x: positions[3].x, y: positions[3].y },
+    ];
+
+    // 用於儲存玩家選擇的物品
+    this.selectedItems = [];
+
+    // 加載和顯示每個物品，並使它們可點擊
+    items.forEach((item) => {
+      let obj = this.add.image(item.x, item.y, item.key).setInteractive();
+      obj.setScale(0.36);
+      obj.setData("name", item.key);
+      obj.on("pointerdown", () => {
+        this.toggleSelection(obj);
+      });
+    });
+
     this.add
-      .text(400, 50, "記憶數字遊戲", { fontSize: "32px", color: "#000" })
-      .setOrigin(0.5);
+      .image(1280, 595, "確認")
+      .setScale(0.3) // 0.3倍
+      .setInteractive({ useHandCursor: true })
+      .on("pointerup", () => {
+        this.checkAnswer();
+      });
 
-    this.numberText = this.add
-      .text(1000, 380, "", { fontSize: "48px", color: "#000" })
-      .setOrigin(0.5);
-
-    this.messageText = this.add
-      .text(400, 500, "", { fontSize: "24px", color: "#000" })
-      .setOrigin(0.5);
-
-    this.optionsGroup = this.add.group();
-
-    this.interactionEnabled = false; // 初始禁用互動
-
-    this.startGame();
+    // 創建彈出視窗
+    this.createPopup();
   }
 
-  update() {
-    // 遊戲更新邏輯
-  }
-
-  generateSequence(length) {
-    this.sequence = [];
-    let numbers = Array.from({ length: 9 }, (_, i) => i + 1);
-    for (let i = 0; i < length; i++) {
-      let randomIndex = Math.floor(Math.random() * numbers.length);
-      this.sequence.push(numbers[randomIndex]);
-      numbers.splice(randomIndex, 1);
+  // 切換物品選擇狀態
+  toggleSelection(item) {
+    if (this.selectedItems.includes(item.getData("name"))) {
+      // 如果已選擇則取消選擇
+      this.selectedItems = this.selectedItems.filter(
+        (i) => i !== item.getData("name")
+      );
+      item.setTint(0xffffff); // 恢復原色
+    } else {
+      // 如果未選擇則選擇
+      this.selectedItems.push(item.getData("name"));
+      item.setTint(0x00ff00); // 設置為選中顏色
     }
   }
 
-  displaySequence() {
-    this.numberText.setText(this.sequence.join(""));
+  // 檢查答案
+  checkAnswer() {
+    // 正確答案
+    let correctItems = ["噴槍"];
+
+    // 檢查選擇的物品是否正確
+    let isCorrect =
+      correctItems.every((item) => this.selectedItems.includes(item)) &&
+      this.selectedItems.length === correctItems.length;
+
+    // 顯示結果
+    if (isCorrect) {
+      this.scene.start("Scene9_2");
+    } else {
+      this.showPopup("錯誤");
+    }
   }
 
-  hideSequence() {
-    this.numberText.setText("");
-    this.enableInteraction(); // 隱藏題目後啟用互動
+  // 創建彈出視窗
+  createPopup() {
+    this.popup = this.add.container(400, 300);
+    let popupBackground = this.add.graphics();
+    popupBackground.fillStyle(0x00ffff, 0.8);
+    popupBackground.fillRect(-150, -100, 300, 200);
+    let popupText = this.add
+      .text(0, 0, "", {
+        fontSize: "32px",
+        fill: "#f00",
+        padding: { top: 10, bottom: 10, left: 10, right: 10 },
+      })
+      .setOrigin(0.5);
+    this.popup.add([popupBackground, popupText]);
+    this.popup.setVisible(false);
+    this.popupText = popupText;
   }
 
-  displayOptions() {
-    this.optionsGroup.clear(true, true);
-    let numbers = Array.from({ length: 9 }, (_, i) => i + 1);
-    this.shuffleArray(numbers);
-
-    numbers.forEach((number) => {
-      let option = this.add
-        .text(0, 0, number, {
-          fontSize: "40px",
-          color: "#000",
-          backgroundColor: "#fff",
-        })
-        .setInteractive()
-        .on("pointerdown", () => this.checkNumber(number, option));
-      this.optionsGroup.add(option);
-    });
-
-    Phaser.Actions.GridAlign(this.optionsGroup.getChildren(), {
-      width: 3,
-      height: 3,
-      cellWidth: 150,
-      cellHeight: 150,
-      x: 290,
-      y: 300,
-    });
+  // 顯示彈出視窗
+  showPopup(message) {
+    this.popupText.setText(message);
+    this.popup.setVisible(true);
+    this.time.delayedCall(
+      2000,
+      () => {
+        this.popup.setVisible(false);
+      },
+      [],
+      this
+    );
   }
 
+  // 打亂數組的函數
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
-  }
-
-  startGame() {
-    this.generateSequence(5);
-    this.displaySequence();
-    this.displayOptions();
-    this.messageText.setText("");
-    this.currentStep = 0;
-    this.userSequence = [];
-
-    this.disableInteraction(); // 開始遊戲時禁用互動
-    this.time.delayedCall(3000, this.hideSequence, [], this);
-  }
-
-  checkNumber(num, optionElement) {
-    if (!this.interactionEnabled) return; // 如果未啟用互動則返回
-
-    if (this.sequence.length === 0) return;
-
-    this.userSequence.push(num);
-    optionElement.setScale(2); // 將點選的數字變大到2倍
-    if (
-      this.userSequence[this.currentStep] === this.sequence[this.currentStep]
-    ) {
-      optionElement.setVisible(false);
-      if (this.currentStep === this.sequence.length - 1) {
-        this.messageText.setText("恭喜你，答對了！").setColor("green");
-        this.disableInteraction(); // 答對後禁用互動
-      } else {
-        this.currentStep++;
-      }
-    } else {
-      this.messageText.setText("抱歉，答錯了。再試一次！").setColor("red");
-      this.time.delayedCall(
-        3000,
-        () => {
-          this.messageText.setText("");
-          this.resetGame();
-        },
-        [],
-        this
-      );
-    }
-  }
-
-  resetGame() {
-    this.currentStep = 0;
-    this.userSequence = [];
-    this.optionsGroup.getChildren().forEach((option) => {
-      option.setVisible(true);
-      option.setScale(1); // 重置數字大小
-    });
-    this.displaySequence();
-    this.disableInteraction(); // 重置遊戲時禁用互動
-    this.time.delayedCall(3000, this.hideSequence, [], this);
-  }
-
-  disableInteraction() {
-    this.interactionEnabled = false;
-  }
-
-  enableInteraction() {
-    this.interactionEnabled = true;
   }
 }
