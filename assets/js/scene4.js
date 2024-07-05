@@ -1,6 +1,6 @@
-class Scene6_1 extends Phaser.Scene {
+class Scene4 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene6_1" });
+    super({ key: "Scene4" });
     this.selectedImage = null;
     this.pairsLeft = 0; // 初始化剩余配对数
   }
@@ -135,7 +135,7 @@ class Scene6_1 extends Phaser.Scene {
       .setInteractive({ useHandCursor: true });
 
     nextButton.on("pointerup", () => {
-      this.scene.start("Scene7_1"); // 跳转到 Scene7_1 场景
+      this.scene.start("Scene5"); // 跳转到 Scene7_1 场景
     });
   }
 }

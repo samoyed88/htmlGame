@@ -1,6 +1,6 @@
-class Scene7_1 extends Phaser.Scene {
+class Scene3 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene7_1" });
+    super({ key: "Scene3" });
   }
 
   preload() {
@@ -53,7 +53,7 @@ class Scene7_1 extends Phaser.Scene {
 
     this.checkAnswer = function (selectedKey) {
       if (selectedKey === correctAnswer) {
-        this.scene.start("Scene7_2"); // 如果答案正确，进入下一个场景
+        this.scene.start("Scene4"); // 如果答案正确，进入下一个场景
       } else {
         // 如果答案错误，找到错误的选项图片并销毁
         let wrongOption = optionImages.find(
