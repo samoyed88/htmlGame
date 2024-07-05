@@ -1,7 +1,8 @@
-class Scene3_2 extends Phaser.Scene {
+class Scene7_1 extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene3_2" });
+    super({ key: "Scene7_1" });
   }
+
   preload() {
     this.load.image("background", "assets/img/background.png");
     this.load.image("aImg", "assets/img/底.png");
@@ -15,9 +16,9 @@ class Scene3_2 extends Phaser.Scene {
     const b = Math.floor(Math.random() * 99 + 1);
     let question = 0;
     if (a > b) {
-      question = Math.floor(Math.random() * (a - b) + b);
+      question = Math.floor(Math.random() * (a - b - 1) + (b + 1));
     } else {
-      question = Math.floor(Math.random() * (b - a) + a);
+      question = Math.floor(Math.random() * (b - a - 1) + (a + 1));
     }
 
     const aContainer = this.add.container(190, 360);
@@ -60,15 +61,15 @@ class Scene3_2 extends Phaser.Scene {
 
   next(question, a, b, chosen, image, text) {
     if (chosen === "a") {
-      if (a <= question) {
-        this.scene.start("Scene4_1");
+      if (a > question) {
+        this.scene.start("Scene7_2");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "b") {
-      if (b <= question) {
-        this.scene.start("Scene4_1");
+      if (b > question) {
+        this.scene.start("Scene7_2");
       } else {
         image.destroy();
         text.destroy();
