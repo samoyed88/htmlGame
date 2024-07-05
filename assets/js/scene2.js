@@ -22,9 +22,9 @@ class Scene2 extends Phaser.Scene {
     // 定義六個位置
     let positions = [
       { x: 300, y: 380 },
-      { x: 650, y: 380 },
+      { x: 680, y: 380 },
       { x: 300, y: 820 },
-      { x: 650, y: 820 },
+      { x: 680, y: 820 },
       { x: 1000, y: 380 },
       { x: 1000, y: 820 },
     ];
@@ -48,7 +48,7 @@ class Scene2 extends Phaser.Scene {
     // 加載和顯示每個物品，並使它們可點擊
     items.forEach((item) => {
       let obj = this.add.image(item.x, item.y, item.key).setInteractive();
-      obj.setScale(0.36);
+      obj.setScale(0.3);
       obj.setData("name", item.key);
       obj.on("pointerdown", () => {
         this.toggleSelection(obj);
@@ -94,7 +94,7 @@ class Scene2 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Scene3");
+      this.scene.start("Introduce3");
     } else {
       this.showPopup("錯誤");
     }

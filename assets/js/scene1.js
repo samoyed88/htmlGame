@@ -129,28 +129,28 @@ class Scene1 extends Phaser.Scene {
   next(var0, chosen, image, text) {
     if (chosen === "a") {
       if (var0) {
-        this.scene.start("Scene2");
+        this.scene.start("Introduce2");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "b") {
       if (var0) {
-        this.scene.start("Scene2");
+        this.scene.start("Introduce2");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "c") {
       if (var0) {
-        this.scene.start("Scene2");
+        this.scene.start("Introduce2");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "d") {
       if (var0) {
-        this.scene.start("Scene2");
+        this.scene.start("Introduce2");
       } else {
         image.destroy();
         text.destroy();
