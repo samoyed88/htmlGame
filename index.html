@@ -6,10 +6,13 @@
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser-arcade-physics.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/start.js"></script>
+    <script src="assets/js/instructions.js"></script>
+    <script src="assets/js/introduce1.js"></script>
+    <script src="assets/js/preface.js"></script>
+    <script src="assets/js/map.js"></script>
     <script src="assets/js/scene1.js"></script>
     <script src="assets/js/scene2.js"></script>
     <script src="assets/js/scene3.js"></script>
-    <script src="assets/js/instructions.js"></script>
     <script src="assets/js/scene4.js"></script>
     <script src="assets/js/scene5.js"></script>
     <script src="assets/js/scene6.js"></script>
@@ -38,6 +41,8 @@
         },
         scene: [
           Start,
+          Preface,
+          Map,
           Scene1,
           Scene2,
           Scene3,
@@ -49,7 +54,8 @@
           Scene8,
           Scene9,
           Scene10,
-          instructions,
+          Instructions,
+          Introduce1,
         ],
       };
       var game = new Phaser.Game(config);
