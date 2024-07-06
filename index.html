@@ -10,6 +10,7 @@
     <script src="assets/js/introduce1.js"></script>
     <script src="assets/js/introduce2.js"></script>
     <script src="assets/js/introduce3.js"></script>
+    <script src="assets/js/introduce4.js"></script>
     <script src="assets/js/preface.js"></script>
     <script src="assets/js/map.js"></script>
     <script src="assets/js/scene1.js"></script>
@@ -60,12 +61,15 @@
           Introduce1,
           Introduce2,
           Introduce3,
+          Introduce4,
         ],
       };
       var game = new Phaser.Game(config);
 
       function resize() {
-        game.scale.resize(window.innerWidth, window.innerHeight);
+        if (game.scale) {
+          game.scale.resize(window.innerWidth, window.innerHeight);
+        }
       }
 
       window.addEventListener("resize", resize);
