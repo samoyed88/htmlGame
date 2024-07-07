@@ -135,7 +135,7 @@ class Scene4 extends Phaser.Scene {
       .setInteractive({ useHandCursor: true });
 
     nextButton.on("pointerup", () => {
-      this.scene.start("Scene5"); // 跳转到 Scene7_1 场景
+      this.scene.start("Introduce5");
     });
   }
 }

@@ -1,17 +1,17 @@
-class Introduce4 extends Phaser.Scene {
+class Introduce5 extends Phaser.Scene {
   constructor() {
-    super({ key: "Introduce4" });
+    super({ key: "Introduce5" });
     this.button = null;
     this.start = null;
   }
 
   preload() {
-    this.load.image("ins4", "assets/img/ins4.png");
+    this.load.image("ins5", "assets/img/ins5.png");
     this.load.image("next", "assets/img/下一步.png");
   }
 
   create() {
-    this.add.image(0, 0, "ins4").setOrigin(0, 0); //將中心點訂為左上角
+    this.add.image(0, 0, "ins5").setOrigin(0, 0); //將中心點訂為左上角
     // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
       .image(900, 900, "next")
@@ -24,7 +24,7 @@ class Introduce4 extends Phaser.Scene {
       // 刪除背景
       //this.background.destroy();
       // 切換到 Scene2
-      this.scene.start("Scene4");
+      this.scene.start("Scene5");
     });
   }
 }
