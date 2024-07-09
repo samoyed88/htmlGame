@@ -31,7 +31,7 @@ class Start extends Phaser.Scene {
   startGame() {
     // 这里是开始游戏的逻辑
     // 可以跳转到游戏的预设场景或者其他必要的处理
-    this.scene.start("GameScene");
+    this.scene.start("Instructions");
   }
 
   async sendApiRequest() {
