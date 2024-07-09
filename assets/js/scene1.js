@@ -52,61 +52,61 @@ class Scene1 extends Phaser.Scene {
 
     // 创建a方块
     const aAnswer = var1 ? correctAnswer : wrongAnswer;
-    const aContainer = this.add.container(200, 300);
+    const aContainer = this.add.container(450, 350);
     const aImage = this.add
       .image(0, 0, "aImg")
-      .setScale(0.2)
+      .setScale(0.4)
       .setInteractive({ useHandCursor: true });
     const aText = this.add.text(-40, -23, aAnswer, {
-      fontSize: "50px",
-      color: "#00BBFF",
+      fontSize: "90px",
+      color: "#000000",
     });
 
     aContainer.add([aImage, aText]);
 
     // 创建b方块
     const bAnswer = var2 ? correctAnswer : wrongAnswer2;
-    const bContainer = this.add.container(600, 300);
+    const bContainer = this.add.container(1000, 350);
     const bImage = this.add
       .image(0, 0, "aImg")
-      .setScale(0.2)
+      .setScale(0.4)
       .setInteractive({ useHandCursor: true });
     const bText = this.add.text(-40, -23, bAnswer, {
-      fontSize: "50px",
-      color: "#00BBFF",
+      fontSize: "90px",
+      color: "#000000",
     });
     bContainer.add([bImage, bText]);
 
     // 创建c方块
     const cAnswer = var3 ? correctAnswer : wrongAnswer3;
-    const cContainer = this.add.container(200, 550);
+    const cContainer = this.add.container(450, 800);
     const cImage = this.add
       .image(0, 0, "aImg")
-      .setScale(0.2)
+      .setScale(0.4)
       .setInteractive({ useHandCursor: true });
     const cText = this.add.text(-40, -23, cAnswer, {
-      fontSize: "50px",
-      color: "#00BBFF",
+      fontSize: "90px",
+      color: "#000000",
     });
     cContainer.add([cImage, cText]);
 
     // 创建d方块
     const dAnswer = var4 ? correctAnswer : wrongAnswer4;
-    const dContainer = this.add.container(600, 550);
+    const dContainer = this.add.container(1000, 800);
     const dImage = this.add
       .image(0, 0, "aImg")
-      .setScale(0.2)
+      .setScale(0.4)
       .setInteractive({ useHandCursor: true });
     const dText = this.add.text(-40, -23, dAnswer, {
-      fontSize: "50px",
-      color: "#00BBFF",
+      fontSize: "90px",
+      color: "#000000",
     });
 
     dContainer.add([dImage, dText]);
 
-    this.add.text(900, 325, question, {
-      fontSize: "50px",
-      color: "#00BBFF",
+    this.add.text(1535, 800, question, {
+      fontSize: "70px",
+      color: "#000000",
     });
 
     aImage.on("pointerup", () => {
