@@ -45,7 +45,7 @@ class Start extends Phaser.Scene {
       Status: "null",
     });
 
-    const url = `https://www.gyrigym.com/TestApiPostGameData/?${params.toString()}`;
+    const url = `https://www.gyrigym.com/TestApiPostGameData/eyJSZWNvcmRJRCI6bnVsbCwiVG9rZW4iOm51bGwsIkdhbWVJRCI6IjZiOGU2NDgyOWU0YzllMjQ3NDVjZWZlNGZjZmY1ZDdlM2Q5ZWRkNDIxMDU1OTgyZDQ4YWYxODc1M2MwODM3ZTYiLCJHYW1lTGV2ZWwiOm51bGwsIlN0YXR1cyI6bnVsbH0=`;
 
     try {
       const response = await fetch(url);
