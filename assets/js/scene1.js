@@ -4,7 +4,7 @@ class Scene1 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background.png");
+    this.load.image("background1", "assets/img/background1.png");
     this.load.image("aImg", "assets/img/底.png");
     this.load.image("bImg", "assets/img/底.png");
     this.load.image("cImg", "assets/img/底.png");
@@ -12,7 +12,7 @@ class Scene1 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background1").setOrigin(0, 0); // 将中心点定为左上角
 
     //得到兩個1~100隨機數
     const num1 = Math.floor(Math.random() * 99 + 1);
