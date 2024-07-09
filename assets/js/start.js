@@ -7,13 +7,15 @@ class Start extends Phaser.Scene {
     // 加载游戏所需资源
     this.load.image("start", "assets/img/start.png");
     // 加载其他必要资源
+    this.load.image("back-start", "assets/img/background-start.png");
   }
 
   create() {
+    this.add.image(0, 0, "back-start").setOrigin(0, 0);
     // 创建开始游戏按钮
     this.add
-      .image(530, 278, "start")
-      .setScale(0.47)
+      .image(950, 650, "start")
+      .setScale(0.8)
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.startGame();
