@@ -24,7 +24,7 @@ class Map extends Phaser.Scene {
       // 刪除背景
       //this.background.destroy();
       // 切換到 Scene2
-      this.scene.start("Scene10");
+      this.scene.start("Introduce1");
     });
   }
 }
