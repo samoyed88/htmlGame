@@ -7,15 +7,15 @@ class Introduce1 extends Phaser.Scene {
 
   preload() {
     this.load.image("ins1", "assets/img/ins1.png");
-    this.load.image("next", "assets/img/下一步.png");
+    this.load.image("next", "assets/img/next.png");
   }
 
   create() {
     this.add.image(0, 0, "ins1").setOrigin(0, 0); //將中心點訂為左上角
     // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
-      .image(900, 850, "next")
-      .setScale(0.47)
+      .image(900, 950, "next")
+      .setScale(0.1)
       .setOrigin(0, 0)
       .setInteractive();
 
