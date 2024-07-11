@@ -13,12 +13,13 @@ class Scene2 extends Phaser.Scene {
     this.load.image("鍋鏟", "assets/img/鍋鏟.png");
     this.load.image("電鍋", "assets/img/電鍋.png");
     this.load.image("確認", "assets/img/確認.png");
+    this.load.image("rain", "assets/img/rain.png");
   }
 
   create() {
     // 加載背景圖片
     this.add.image(0, 0, "background2").setOrigin(0, 0); // 將中心點設為左上角
-
+    this.add.image(600, 80, "rain");
     // 定義六個位置
     let positions = [
       { x: 280, y: 400 },
