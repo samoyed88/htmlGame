@@ -78,7 +78,7 @@ class Scene2 extends Phaser.Scene {
     } else {
       // 如果未選擇則選擇
       this.selectedItems.push(item.getData("name"));
-      item.setTint(0x00ff00); // 設置為選中顏色
+      item.setTint(808080); // 設置為選中顏色
     }
   }
 
