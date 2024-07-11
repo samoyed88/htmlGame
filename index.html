@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>炙燒大拼盤</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -31,12 +31,10 @@
     <script src="assets/js/scene8.js"></script>
     <script src="assets/js/scene9.js"></script>
     <script src="assets/js/scene10.js"></script>
-    <script src="assets/js/test.js"></script>
   </head>
   <body>
     <script>
       var config = {
-<<<<<<< HEAD
   type: Phaser.AUTO,
   scale: {
     mode: Phaser.Scale.FIT,
@@ -85,63 +83,26 @@
   ],
 };
 
-=======
-        type: Phaser.AUTO,
-        scale: {
-          mode: Phaser.Scale.FIT,
-          autoCenter: Phaser.Scale.CENTER_BOTH,
-          width: 1920,
-          height: 1080,
-        },
-        pixelArt: true, // 保持畫面清晰度
-        physics: {
-          default: "arcade",
-          arcade: {
-            debug: false,
-            gravity: { y: 0 },
-          },
-        },
-        scene: [
-          Start,
-          Preface,
-          Map,
-          Scene1,
-          Scene2,
-          Scene3,
-          Scene4,
-          Scene5,
-          Scene6,
-          Scene7_1,
-          Scene7_2,
-          Scene8,
-          Scene9,
-          Scene10,
-          Instructions,
-          Introduce1,
-          Introduce2,
-          Introduce3,
-          Introduce4,
-          Introduce5,
-          Introduce6,
-          Introduce7,
-          Introduce8,
-          Introduce9,
-          Introduce10,
-          test,
-        ],
-      };
->>>>>>> 2356e1b212e882a81b081bae514f06a1e3d93de0
       var game = new Phaser.Game(config);
 
-      window.addEventListener("resize", resize);
-      resize();
-
       function resize() {
+        var canvas = document.querySelector("canvas");
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
         var windowRatio = windowWidth / windowHeight;
         var gameRatio = game.config.width / game.config.height;
+
+        if (windowRatio < gameRatio) {
+          canvas.style.width = windowWidth + "px";
+          canvas.style.height = windowWidth / gameRatio + "px";
+        } else {
+          canvas.style.width = windowHeight * gameRatio + "px";
+          canvas.style.height = windowHeight + "px";
+        }
       }
+
+      window.addEventListener("resize", resize);
+      resize();
     </script>
   </body>
 </html>
