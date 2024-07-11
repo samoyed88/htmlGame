@@ -4,7 +4,7 @@ class Scene10 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background3.png");
+    this.load.image("background", "assets/img/background10.png");
     this.load.image("斧頭", "assets/img/斧頭.png");
     this.load.image("噴槍", "assets/img/噴槍.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");

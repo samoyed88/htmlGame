@@ -31,7 +31,7 @@ class Scene6 extends Phaser.Scene {
   }
 
   switchToRedLight() {
-    this.redLight = this.add.image(400, 300, "redLight").setScale(0.2);
+    this.redLight = this.add.image(425, 550, "redLight").setScale(0.5);
 
     if (this.greenLight) {
       this.greenLight.destroy();
@@ -42,10 +42,10 @@ class Scene6 extends Phaser.Scene {
   switchToGreenLight() {
     // 移動綠燈到紅燈右邊的位置
     const redLightWidth = this.redLight.width * 0.2; // 紅燈的寬度
-    const greenLightX = this.redLight.x + redLightWidth + 20; // 20 是紅燈和綠燈之間的距離，可根據需要調整
+    const greenLightX = this.redLight.x + redLightWidth + 250; // 20 是紅燈和綠燈之間的距離，可根據需要調整
     this.greenLight = this.add
-      .image(greenLightX, 300, "greenLight")
-      .setScale(0.2)
+      .image(greenLightX, 550, "greenLight")
+      .setScale(0.5)
       .setInteractive();
 
     if (this.redLight) {
