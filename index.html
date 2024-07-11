@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>炙燒大拼盤</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -31,6 +31,7 @@
     <script src="assets/js/scene8.js"></script>
     <script src="assets/js/scene9.js"></script>
     <script src="assets/js/scene10.js"></script>
+    <script src="assets/js/test.js"></script>
   </head>
   <body>
     <script>
@@ -76,28 +77,20 @@
           Introduce8,
           Introduce9,
           Introduce10,
+          test,
         ],
       };
       var game = new Phaser.Game(config);
 
+      window.addEventListener("resize", resize);
+      resize();
+
       function resize() {
-        var canvas = document.querySelector("canvas");
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
         var windowRatio = windowWidth / windowHeight;
         var gameRatio = game.config.width / game.config.height;
-
-        if (windowRatio < gameRatio) {
-          canvas.style.width = windowWidth + "px";
-          canvas.style.height = windowWidth / gameRatio + "px";
-        } else {
-          canvas.style.width = windowHeight * gameRatio + "px";
-          canvas.style.height = windowHeight + "px";
-        }
       }
-
-      window.addEventListener("resize", resize);
-      resize();
     </script>
   </body>
 </html>

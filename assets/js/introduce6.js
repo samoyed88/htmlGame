@@ -7,7 +7,7 @@ class Introduce6 extends Phaser.Scene {
 
   preload() {
     this.load.image("ins6", "assets/img/ins6.png");
-    this.load.image("next", "assets/img/下一步.png");
+    this.load.image("next", "assets/img/next.png");
   }
 
   create() {
@@ -15,7 +15,7 @@ class Introduce6 extends Phaser.Scene {
     // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
       .image(900, 900, "next")
-      .setScale(0.47)
+      .setScale(0.1)
       .setOrigin(0, 0)
       .setInteractive();
 

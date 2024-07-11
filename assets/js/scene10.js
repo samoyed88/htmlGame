@@ -5,8 +5,8 @@ class Scene10 extends Phaser.Scene {
 
   preload() {
     this.load.image("background", "assets/img/background.png");
-    this.load.image("雨傘", "assets/img/雨傘.png");
-    this.load.image("雨衣", "assets/img/雨衣.png");
+    this.load.image("斧頭", "assets/img/斧頭.png");
+    this.load.image("噴槍", "assets/img/噴槍.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");
     this.load.image("遙控器", "assets/img/遙控器.png");
     this.load.image("確認", "assets/img/確認.png");
@@ -29,8 +29,8 @@ class Scene10 extends Phaser.Scene {
 
     // 白色區域顯示四張圖片，並分配隨機位置
     let items = [
-      { key: "雨傘", x: positions[0].x, y: positions[0].y },
-      { key: "雨衣", x: positions[1].x, y: positions[1].y },
+      { key: "斧頭", x: positions[0].x, y: positions[0].y },
+      { key: "噴槍", x: positions[1].x, y: positions[1].y },
       { key: "螺絲起子", x: positions[2].x, y: positions[2].y },
       { key: "遙控器", x: positions[3].x, y: positions[3].y },
     ];
