@@ -15,11 +15,11 @@ class Scene9 extends Phaser.Scene {
 
     // 創建顯示輸入密碼的文本
     this.inputText = this.add
-      .text(400, 100, "", { fontSize: "48px", color: "#000" })
+      .text(750, 900, "", { fontSize: "48px", color: "#000" })
       .setOrigin(0.5);
 
     this.messageText = this.add
-      .text(400, 200, "", { fontSize: "24px", color: "#000" })
+      .text(750, 1000, "", { fontSize: "24px", color: "#000" })
       .setOrigin(0.5);
 
     // 初始化用戶輸入的密碼

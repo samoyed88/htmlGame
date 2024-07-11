@@ -21,7 +21,7 @@ class Next8 extends Phaser.Scene {
 
     // 在畫面上顯示生成的密碼
     this.add
-      .text(1400, 800, `${this.password}`, {
+      .text(1400, 700, `${this.password}`, {
         fontSize: "80px",
         color: "#000",
       })
