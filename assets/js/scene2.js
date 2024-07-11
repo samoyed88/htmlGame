@@ -94,7 +94,7 @@ class Scene2 extends Phaser.Scene {
 
     // 顯示結果
     if (isCorrect) {
-      this.scene.start("Introduce3");
+      this.scene.start("next2");
     } else {
       this.showPopup("錯誤");
     }

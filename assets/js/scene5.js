@@ -83,7 +83,7 @@ class Scene5 extends Phaser.Scene {
     if (allMatched) {
       // Switch to the new scene
       this.time.delayedCall(1000, () => {
-        this.scene.start("Introduce6");
+        this.scene.start("next5");
       });
     }
   }

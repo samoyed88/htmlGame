@@ -53,10 +53,12 @@ class Scene1 extends Phaser.Scene {
       .image(0, 0, "aImg")
       .setScale(0.35)
       .setInteractive({ useHandCursor: true });
-    const aText = this.add.text(0, 0, aAnswer, {
-      fontSize: "90px",
-      color: "#000000",
-    }).setOrigin(0.5, 0.5);
+    const aText = this.add
+      .text(0, 0, aAnswer, {
+        fontSize: "90px",
+        color: "#000000",
+      })
+      .setOrigin(0.5, 0.5);
 
     aContainer.add([aImage, aText]);
 
@@ -66,10 +68,12 @@ class Scene1 extends Phaser.Scene {
       .image(0, 0, "bImg")
       .setScale(0.35)
       .setInteractive({ useHandCursor: true });
-    const bText = this.add.text(0, 0, bAnswer, {
-      fontSize: "90px",
-      color: "#000000",
-    }).setOrigin(0.5, 0.5);
+    const bText = this.add
+      .text(0, 0, bAnswer, {
+        fontSize: "90px",
+        color: "#000000",
+      })
+      .setOrigin(0.5, 0.5);
 
     bContainer.add([bImage, bText]);
 
@@ -79,10 +83,12 @@ class Scene1 extends Phaser.Scene {
       .image(0, 0, "cImg")
       .setScale(0.35)
       .setInteractive({ useHandCursor: true });
-    const cText = this.add.text(0, 0, cAnswer, {
-      fontSize: "90px",
-      color: "#000000",
-    }).setOrigin(0.5, 0.5);
+    const cText = this.add
+      .text(0, 0, cAnswer, {
+        fontSize: "90px",
+        color: "#000000",
+      })
+      .setOrigin(0.5, 0.5);
 
     cContainer.add([cImage, cText]);
 
@@ -92,10 +98,12 @@ class Scene1 extends Phaser.Scene {
       .image(0, 0, "dImg")
       .setScale(0.35)
       .setInteractive({ useHandCursor: true });
-    const dText = this.add.text(0, 0, dAnswer, {
-      fontSize: "90px",
-      color: "#000000",
-    }).setOrigin(0.5, 0.5);
+    const dText = this.add
+      .text(0, 0, dAnswer, {
+        fontSize: "90px",
+        color: "#000000",
+      })
+      .setOrigin(0.5, 0.5);
 
     dContainer.add([dImage, dText]);
 
@@ -123,7 +131,7 @@ class Scene1 extends Phaser.Scene {
 
   next(var0, chosen, image, text) {
     if (var0) {
-      this.scene.start("Introduce2");
+      this.scene.start("next1");
     } else {
       image.destroy();
       text.destroy();

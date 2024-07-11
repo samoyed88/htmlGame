@@ -135,7 +135,7 @@ class Scene4 extends Phaser.Scene {
       .setInteractive({ useHandCursor: true });
 
     nextButton.on("pointerup", () => {
-      this.scene.start("Introduce5");
+      this.scene.start("next4");
     });
   }
 }
