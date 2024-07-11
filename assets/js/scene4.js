@@ -89,8 +89,7 @@ class Scene4 extends Phaser.Scene {
 
           this.pairsLeft--; // 减少剩余配对数
           if (this.pairsLeft === 0) {
-            // 所有配对完成，显示恭喜界面
-            this.showCongratulations();
+            this.scene.start("Next4");
           }
         });
       } else {
@@ -99,51 +98,5 @@ class Scene4 extends Phaser.Scene {
         this.selectedImage = null;
       }
     }
-  }
-
-  showCongratulations() {
-    // 创建覆盖层
-    const overlay = this.add.graphics();
-    overlay.fillStyle(0x000000, 0.7);
-    overlay.fillRect(
-      0,
-      0,
-      this.sys.game.config.width,
-      this.sys.game.config.height
-    );
-
-    // 显示恭喜信息
-    const congratsText = this.add
-      .text(
-        this.sys.game.config.width / 2,
-        this.sys.game.config.height / 2 - 50,
-        "恭喜通過這一關",
-        {
-          fontSize: "40px", // 增大字体
-          color: "#ffffff",
-          padding: { left: 20, right: 20, top: 10, bottom: 10 }, // 增加填充
-        }
-      )
-      .setOrigin(0.5, 0.5);
-
-    // 创建进入下一关的按钮
-    const nextButton = this.add
-      .text(
-        this.sys.game.config.width / 2,
-        this.sys.game.config.height / 2 + 50,
-        "進入下一關",
-        {
-          fontSize: "30px",
-          color: "#ffffff",
-          backgroundColor: "#00bfff",
-          padding: { left: 20, right: 20, top: 10, bottom: 10 },
-        }
-      )
-      .setOrigin(0.5, 0.5)
-      .setInteractive({ useHandCursor: true });
-
-    nextButton.on("pointerup", () => {
-      this.scene.start("Next4");
-    });
   }
 }
