@@ -4,7 +4,7 @@ class Scene3 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background1", "assets/img/background1.png");
+    this.load.image("background3", "assets/img/background3.png");
     this.load.image("cat", "assets/img/貓咪.png");
     this.load.image("monkey", "assets/img/猴子.png");
     this.load.image("panda", "assets/img/熊貓.png");
@@ -13,7 +13,7 @@ class Scene3 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background1").setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background3").setOrigin(0, 0); // 将中心点定为左上角
 
     let correctAnswer = "elephant"; // 正確答案的 key
 

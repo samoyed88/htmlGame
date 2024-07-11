@@ -4,7 +4,7 @@ class Scene5 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background2.png");
+    this.load.image("background5", "assets/img/background5.png");
     this.load.image("cardBack", "assets/img/底.png");
     this.load.image("cantaloupe", "assets/img/哈密瓜.png");
     this.load.image("strawberry", "assets/img/草莓.png");
@@ -13,7 +13,7 @@ class Scene5 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0);
+    this.add.image(0, 0, "background5").setOrigin(0, 0);
 
     const fruitKeys = ["cantaloupe", "strawberry", "grape", "apple"];
     this.cards = [];

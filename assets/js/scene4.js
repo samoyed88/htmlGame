@@ -6,7 +6,7 @@ class Scene4 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background2.png");
+    this.load.image("background4", "assets/img/background4.png");
 
     this.load.image("cat", "assets/img/貓咪.png");
     this.load.image("fish", "assets/img/魚.png");
@@ -22,7 +22,7 @@ class Scene4 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background4").setOrigin(0, 0); // 将中心点定为左上角
 
     const items = [
       { key: "cat", pair: "fish" },

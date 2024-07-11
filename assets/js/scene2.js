@@ -5,7 +5,7 @@ class Scene2 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background1", "assets/img/background1.png");
+    this.load.image("background2", "assets/img/background2.png");
     this.load.image("雨傘", "assets/img/雨傘.png");
     this.load.image("雨衣", "assets/img/雨衣.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");
@@ -17,7 +17,7 @@ class Scene2 extends Phaser.Scene {
 
   create() {
     // 加載背景圖片
-    this.add.image(0, 0, "background1").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background2").setOrigin(0, 0); // 將中心點設為左上角
 
     // 定義六個位置
     let positions = [

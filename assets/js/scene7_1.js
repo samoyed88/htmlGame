@@ -4,13 +4,13 @@ class Scene7_1 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background3.png");
+    this.load.image("background7", "assets/img/background7.png");
     this.load.image("aImg", "assets/img/底.png");
     this.load.image("bImg", "assets/img/底.png");
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0); //将中心点定为左上角
+    this.add.image(0, 0, "background7").setOrigin(0, 0); //将中心点定为左上角
 
     const a = Math.floor(Math.random() * 99 + 1);
     const b = Math.floor(Math.random() * 99 + 1);

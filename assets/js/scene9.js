@@ -30,10 +30,6 @@ class Scene9 extends Phaser.Scene {
     this.startGame();
   }
 
-  update() {
-    // 遊戲更新邏輯
-  }
-
   generateSequence(length) {
     this.sequence = [];
     let numbers = Array.from({ length: 9 }, (_, i) => i + 1);
