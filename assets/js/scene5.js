@@ -4,7 +4,7 @@ class Scene5 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background.png");
+    this.load.image("background", "assets/img/background2.png");
     this.load.image("cardBack", "assets/img/底.png");
     this.load.image("cantaloupe", "assets/img/哈密瓜.png");
     this.load.image("strawberry", "assets/img/草莓.png");

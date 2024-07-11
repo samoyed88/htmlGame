@@ -3,7 +3,7 @@ class Scene8 extends Phaser.Scene {
     super({ key: "Scene8" });
   }
   preload() {
-    this.load.image("background", "assets/img/background.png");
+    this.load.image("background", "assets/img/background3.png");
     this.load.image("aImg", "assets/img/底.png");
     this.load.image("bImg", "assets/img/底.png");
     this.load.image("cImg", "assets/img/底.png");

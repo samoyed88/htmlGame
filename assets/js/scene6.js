@@ -6,9 +6,11 @@ class Scene6 extends Phaser.Scene {
   preload() {
     this.load.image("redLight", "assets/img/red.png");
     this.load.image("greenLight", "assets/img/green.png");
+    this.load.image("background", "assets/img/background2.png");
   }
 
   create() {
+    this.add.image(0, 0, "background").setOrigin(0, 0); // 将中心点定为左上角
     this.currentLight = "red";
     this.switchToRedLight();
 
