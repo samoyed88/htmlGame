@@ -4,66 +4,47 @@ class Scene9 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background9.png");
+    this.load.image("background9", "assets/img/background9.png");
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background9").setOrigin(0, 0); // 將中心點設為左上角
 
-    // 設定遊戲樣式和元素
-    this.add
-      .text(400, 50, "記憶數字遊戲", { fontSize: "32px", color: "#000" })
-      .setOrigin(0.5);
+    // 從 registry 中獲取四位數密碼
+    this.password = this.registry.get("password");
 
-    this.numberText = this.add
-      .text(1000, 380, "", { fontSize: "48px", color: "#000" })
+    // 創建顯示輸入密碼的文本
+    this.inputText = this.add
+      .text(400, 100, "", { fontSize: "48px", color: "#000" })
       .setOrigin(0.5);
 
     this.messageText = this.add
-      .text(400, 500, "", { fontSize: "24px", color: "#000" })
+      .text(400, 200, "", { fontSize: "24px", color: "#000" })
       .setOrigin(0.5);
 
+    // 初始化用戶輸入的密碼
+    this.userInput = "";
+
+    // 初始化 optionsGroup
     this.optionsGroup = this.add.group();
 
-    this.interactionEnabled = false; // 初始禁用互動
-
-    this.startGame();
-  }
-
-  generateSequence(length) {
-    this.sequence = [];
-    let numbers = Array.from({ length: 9 }, (_, i) => i + 1);
-    for (let i = 0; i < length; i++) {
-      let randomIndex = Math.floor(Math.random() * numbers.length);
-      this.sequence.push(numbers[randomIndex]);
-      numbers.splice(randomIndex, 1);
-    }
-  }
-
-  displaySequence() {
-    this.numberText.setText(this.sequence.join(""));
-  }
-
-  hideSequence() {
-    this.numberText.setText("");
-    this.enableInteraction(); // 隱藏題目後啟用互動
+    // 顯示九個數字按鈕
+    this.displayOptions();
   }
 
   displayOptions() {
-    this.optionsGroup.clear(true, true);
     let numbers = Array.from({ length: 9 }, (_, i) => i + 1);
     this.shuffleArray(numbers);
 
     numbers.forEach((number) => {
       let option = this.add
         .text(0, 0, number, {
-          fontSize: "40px",
+          fontSize: "60px", // 調整這裡以改變數字大小
           color: "#000",
-          backgroundColor: "#fff",
         })
         .setInteractive()
-        .on("pointerdown", () => this.checkNumber(number, option));
-      this.optionsGroup.add(option);
+        .on("pointerdown", () => this.addNumberToInput(number));
+      this.optionsGroup.add(option); // 添加數字按鈕到 optionsGroup
     });
 
     Phaser.Actions.GridAlign(this.optionsGroup.getChildren(), {
@@ -71,8 +52,8 @@ class Scene9 extends Phaser.Scene {
       height: 3,
       cellWidth: 150,
       cellHeight: 150,
-      x: 290,
-      y: 300,
+      x: 600,
+      y: 450,
     });
   }
 
@@ -83,65 +64,33 @@ class Scene9 extends Phaser.Scene {
     }
   }
 
-  startGame() {
-    this.generateSequence(5);
-    this.displaySequence();
-    this.displayOptions();
-    this.messageText.setText("");
-    this.currentStep = 0;
-    this.userSequence = [];
+  addNumberToInput(num) {
+    if (this.userInput.length < 4) {
+      this.userInput += num;
+      this.inputText.setText(this.userInput);
 
-    this.disableInteraction(); // 開始遊戲時禁用互動
-    this.time.delayedCall(3000, this.hideSequence, [], this);
-  }
-
-  checkNumber(num, optionElement) {
-    if (!this.interactionEnabled) return; // 如果未啟用互動則返回
-
-    if (this.sequence.length === 0) return;
-
-    this.userSequence.push(num);
-    optionElement.setScale(2); // 將點選的數字變大到2倍
-    if (
-      this.userSequence[this.currentStep] === this.sequence[this.currentStep]
-    ) {
-      optionElement.setVisible(false);
-      if (this.currentStep === this.sequence.length - 1) {
-        this.scene.start("Next9");
-      } else {
-        this.currentStep++;
+      // 檢查密碼長度是否達到四位
+      if (this.userInput.length === 4) {
+        this.checkPassword();
       }
-    } else {
-      this.messageText.setText("抱歉，答錯了。再試一次！").setColor("red");
-      this.time.delayedCall(
-        3000,
-        () => {
-          this.messageText.setText("");
-          this.resetGame();
-        },
-        [],
-        this
-      );
     }
   }
 
-  resetGame() {
-    this.currentStep = 0;
-    this.userSequence = [];
-    this.optionsGroup.getChildren().forEach((option) => {
-      option.setVisible(true);
-      option.setScale(1); // 重置數字大小
-    });
-    this.displaySequence();
-    this.disableInteraction(); // 重置遊戲時禁用互動
-    this.time.delayedCall(3000, this.hideSequence, [], this);
-  }
-
-  disableInteraction() {
-    this.interactionEnabled = false;
-  }
-
-  enableInteraction() {
-    this.interactionEnabled = true;
+  checkPassword() {
+    if (this.userInput === this.password) {
+      this.messageText.setText("密碼正確，進入下一關！").setColor("green");
+      this.time.delayedCall(1000, () => {
+        this.scene.start("Next9");
+      });
+    } else {
+      this.messageText
+        .setText("密碼錯誤，正確密碼為：" + this.password)
+        .setColor("red");
+      this.time.delayedCall(2000, () => {
+        this.messageText.setText("");
+        this.userInput = "";
+        this.inputText.setText(this.userInput);
+      });
+    }
   }
 }

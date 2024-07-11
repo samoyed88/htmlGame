@@ -7,11 +7,12 @@ class Scene7_1 extends Phaser.Scene {
     this.load.image("background7", "assets/img/background7.png");
     this.load.image("aImg", "assets/img/底.png");
     this.load.image("bImg", "assets/img/底.png");
+    this.load.image("big", "assets/img/大於.png");
   }
 
   create() {
     this.add.image(0, 0, "background7").setOrigin(0, 0); //将中心点定为左上角
-
+    this.add.image(500, 100, "big");
     const a = Math.floor(Math.random() * 99 + 1);
     const b = Math.floor(Math.random() * 99 + 1);
     let question = 0;
@@ -45,9 +46,9 @@ class Scene7_1 extends Phaser.Scene {
 
     bContainer.add([bImage, bText]);
 
-    this.add.text(950, 355, question, {
+    this.add.text(800, 90, question, {
       fontSize: "80px",
-      color: "#00BBFF",
+      color: "#000000",
     });
 
     aImage.on("pointerup", () => {

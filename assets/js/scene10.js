@@ -9,7 +9,6 @@ class Scene10 extends Phaser.Scene {
     this.load.image("噴槍", "assets/img/噴槍.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");
     this.load.image("遙控器", "assets/img/遙控器.png");
-    this.load.image("確認", "assets/img/確認.png");
   }
 
   create() {
@@ -48,14 +47,6 @@ class Scene10 extends Phaser.Scene {
       });
     });
 
-    this.add
-      .image(1280, 595, "確認")
-      .setScale(0.3) // 0.3倍
-      .setInteractive({ useHandCursor: true })
-      .on("pointerup", () => {
-        this.checkAnswer();
-      });
-
     // 創建彈出視窗
     this.createPopup();
   }
@@ -72,6 +63,9 @@ class Scene10 extends Phaser.Scene {
       // 如果未選擇則選擇
       this.selectedItems.push(item.getData("name"));
       item.setTint(0x00ff00); // 設置為選中顏色
+
+      // 檢查答案
+      this.checkAnswer();
     }
   }
 
@@ -119,6 +113,10 @@ class Scene10 extends Phaser.Scene {
       2000,
       () => {
         this.popup.setVisible(false);
+        // 隱藏所有物品
+        this.optionsGroup.children.each((item) => {
+          item.setVisible(false);
+        });
       },
       [],
       this
