@@ -19,10 +19,10 @@ class Scene3 extends Phaser.Scene {
 
     // 定義四個位置
     let positions = [
-      { x: 450, y: 300 },
-      { x: 850, y: 300 },
-      { x: 450, y: 700 },
-      { x: 850, y: 700 },
+      { x: 325, y: 250 },
+      { x: 525, y: 250 },
+      { x: 325, y: 450 },
+      { x: 525, y: 450 },
     ];
 
     // 打亂位置數組
@@ -36,14 +36,14 @@ class Scene3 extends Phaser.Scene {
       { key: "elephant", x: positions[3].x, y: positions[3].y },
     ];
 
-    this.add.image(1200, 400, "b-elephant").setScale(0.2); // 題目圖片
+    this.add.image(1000, 400, "b-elephant").setScale(0.2); // 題目圖片
 
     let optionImages = [];
 
     options.forEach((option) => {
       let optionImage = this.add
         .image(option.x, option.y, option.key)
-        .setScale(0.35)
+        .setScale(0.2)
         .setInteractive();
       optionImage.on("pointerdown", () => {
         this.checkAnswer(option.key);

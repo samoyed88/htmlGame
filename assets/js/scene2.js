@@ -21,12 +21,12 @@ class Scene2 extends Phaser.Scene {
 
     // 定義六個位置
     let positions = [
-      { x: 300, y: 380 },
-      { x: 650, y: 380 },
-      { x: 300, y: 780 },
-      { x: 650, y: 780 },
-      { x: 1000, y: 380 },
-      { x: 1000, y: 780 },
+      { x: 280, y: 400 },
+      { x: 650, y: 400 },
+      { x: 280, y: 750 },
+      { x: 650, y: 750 },
+      { x: 1020, y: 400 },
+      { x: 1020, y: 750 },
     ];
 
     // 打亂位置數組
@@ -56,8 +56,8 @@ class Scene2 extends Phaser.Scene {
     });
 
     this.add
-      .image(1280, 595, "確認")
-      .setScale(0.3) // 0.3倍
+      .image(650, 975, "確認")
+      .setScale(0.4) // 0.3倍
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.checkAnswer();
