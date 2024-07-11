@@ -99,7 +99,7 @@ class Scene1 extends Phaser.Scene {
 
     dContainer.add([dImage, dText]);
 
-    this.add.text(300, 85, question, {
+    this.add.text(492, 85, question, {
       fontSize: "100px",
       color: "#000000",
     });
