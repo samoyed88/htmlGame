@@ -61,14 +61,14 @@ class Scene7_2 extends Phaser.Scene {
   next(question, a, b, chosen, image, text) {
     if (chosen === "a") {
       if (a <= question) {
-        this.scene.start("Introduce8");
+        this.scene.start("Next7");
       } else {
         image.destroy();
         text.destroy();
       }
     } else if (chosen === "b") {
       if (b <= question) {
-        this.scene.start("Introduce8");
+        this.scene.start("Next7");
       } else {
         image.destroy();
         text.destroy();

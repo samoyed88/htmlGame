@@ -55,7 +55,7 @@ class Scene6 extends Phaser.Scene {
 
     // 點擊事件
     this.greenLight.on("pointerup", () => {
-      this.scene.start("Introduce7"); // 切換到下一個場景
+      this.scene.start("Next6"); // 切換到下一個場景
     });
   }
 }
