@@ -4,11 +4,11 @@ class Scene9 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background9.png");
+    this.load.image("background9", "assets/img/background9.png");
   }
 
   create() {
-    this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background9").setOrigin(0, 0); // 將中心點設為左上角
 
     // 設定遊戲樣式和元素
     this.add
