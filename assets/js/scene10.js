@@ -4,7 +4,7 @@ class Scene10 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background", "assets/img/background10.png");
+    this.load.image("background10", "assets/img/background10.png");
     this.load.image("斧頭", "assets/img/斧頭.png");
     this.load.image("噴槍", "assets/img/噴槍.png");
     this.load.image("螺絲起子", "assets/img/螺絲起子.png");
@@ -13,7 +13,7 @@ class Scene10 extends Phaser.Scene {
 
   create() {
     // 加載背景圖片
-    this.add.image(0, 0, "background").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background10").setOrigin(0, 0); // 將中心點設為左上角
 
     // 定義四個位置
     let positions = [
