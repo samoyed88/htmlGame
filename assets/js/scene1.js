@@ -131,7 +131,7 @@ class Scene1 extends Phaser.Scene {
 
   next(var0, chosen, image, text) {
     if (var0) {
-      this.scene.start("next1");
+      this.scene.start("Next1");
     } else {
       image.destroy();
       text.destroy();

@@ -107,7 +107,7 @@ class Scene9 extends Phaser.Scene {
     ) {
       optionElement.setVisible(false);
       if (this.currentStep === this.sequence.length - 1) {
-        this.scene.start("next9");
+        this.scene.start("Next9");
       } else {
         this.currentStep++;
       }

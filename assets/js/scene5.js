@@ -31,7 +31,7 @@ class Scene5 extends Phaser.Scene {
     const columns = 4; // 每行排列的卡片数量
     const imageWidth = 150; // 卡片宽度
     const imageHeight = 150; // 卡片高度
-    const offsetX = 220 // 第一列右移的距离
+    const offsetX = 220; // 第一列右移的距离
     const offsetY = 325; // 第一行下移的距离
     const spacingX = 150; // 卡片之间的水平间距
     const spacingY = 150; // 卡片之间的垂直间距
@@ -40,7 +40,8 @@ class Scene5 extends Phaser.Scene {
     for (let i = 0; i < this.cards.length; i++) {
       let card = this.cards[i];
       let x = offsetX + (i % columns) * (imageWidth + spacingX); // 设置X坐标
-      let y = offsetY + 150 + Math.floor(i / columns) * (imageHeight + spacingY); // 设置Y坐标
+      let y =
+        offsetY + 150 + Math.floor(i / columns) * (imageHeight + spacingY); // 设置Y坐标
 
       card.sprite = this.add
         .sprite(x, y, "cardBack")
@@ -91,7 +92,7 @@ class Scene5 extends Phaser.Scene {
     if (allMatched) {
       // Switch to the new scene
       this.time.delayedCall(1000, () => {
-        this.scene.start("next5");
+        this.scene.start("Next5");
       });
     }
   }
