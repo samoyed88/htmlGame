@@ -21,8 +21,8 @@ class Start extends Phaser.Scene {
   }
 
   startGame() {
-    //this.scene.start("Instructions");
+    this.scene.start("Instructions");
     //this.scene.start("Scene6");
-    this.scene.start("Introduce3");
+    //this.scene.start("Introduce3");
   }
 }
