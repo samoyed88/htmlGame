@@ -28,15 +28,23 @@ class Scene5 extends Phaser.Scene {
     // Shuffle the cards
     Phaser.Utils.Array.Shuffle(this.cards);
 
+    const columns = 4; // 每行排列的卡片数量
+    const imageWidth = 150; // 卡片宽度
+    const imageHeight = 150; // 卡片高度
+    const offsetX = 220 // 第一列右移的距离
+    const offsetY = 325; // 第一行下移的距离
+    const spacingX = 150; // 卡片之间的水平间距
+    const spacingY = 150; // 卡片之间的垂直间距
+
     // Display the cards with adjusted spacing
     for (let i = 0; i < this.cards.length; i++) {
       let card = this.cards[i];
-      let x = 200 + (i % 4) * 250; // X軸間隔設定為200像素
-      let y = 350 + Math.floor(i / 4) * 250; // Y軸間隔設定為200像素
+      let x = offsetX + (i % columns) * (imageWidth + spacingX); // 设置X坐标
+      let y = offsetY + 150 + Math.floor(i / columns) * (imageHeight + spacingY); // 设置Y坐标
 
       card.sprite = this.add
         .sprite(x, y, "cardBack")
-        .setScale(0.2)
+        .setScale(0.25)
         .setInteractive();
       card.isFlipped = false;
 
@@ -49,7 +57,7 @@ class Scene5 extends Phaser.Scene {
 
   flipCard(card) {
     if (this.selectedCards.length < 2 && !card.isFlipped) {
-      card.sprite.setTexture(card.key).setScale(0.2);
+      card.sprite.setTexture(card.key).setScale(0.25);
       card.isFlipped = true;
       this.selectedCards.push(card);
 
@@ -68,8 +76,8 @@ class Scene5 extends Phaser.Scene {
       this.checkForWin();
     } else {
       this.time.delayedCall(1000, () => {
-        firstCard.sprite.setTexture("cardBack").setScale(0.2);
-        secondCard.sprite.setTexture("cardBack").setScale(0.2);
+        firstCard.sprite.setTexture("cardBack").setScale(0.25);
+        secondCard.sprite.setTexture("cardBack").setScale(0.25);
         firstCard.isFlipped = false;
         secondCard.isFlipped = false;
         this.selectedCards = [];
