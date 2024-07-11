@@ -11,23 +11,20 @@ class Introduce2 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "ins2").setOrigin(0, 0); // Set the top-left corner as the origin
-
-    // Load the "next" image and make it clickable
+    this.add.image(0, 0, "ins2").setOrigin(0, 0); //將中心點訂為左上角
+    // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
       .image(900, 900, "next")
       .setScale(0.1)
       .setOrigin(0, 0)
       .setInteractive();
 
-    // Add a click event to switch to either Scene2 or Scene2_2 randomly
+    // 添加點擊事件來切換到 Scene1
     this.button.on("pointerup", () => {
-      // Randomly choose between Scene2 and Scene2_2
-      let randomScene = Phaser.Math.Between(1, 2);
-      let sceneKey = randomScene === 1 ? "Scene2" : "Scene2_2";
-
-      // Start the chosen scene
-      this.scene.start(sceneKey);
+      // 刪除背景
+      //this.background.destroy();
+      // 切換到 Scene2
+      this.scene.start("Scene2");
     });
   }
 }
