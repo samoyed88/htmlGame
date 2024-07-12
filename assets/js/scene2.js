@@ -12,7 +12,7 @@ class Scene2 extends Phaser.Scene {
     this.load.image("遙控器", "assets/img/遙控器.png");
     this.load.image("鍋鏟", "assets/img/鍋鏟.png");
     this.load.image("電鍋", "assets/img/電鍋.png");
-    this.load.image("確認", "assets/img/確認.png");
+    this.load.image("確認", "assets/img/check.png");
     this.load.image("rain", "assets/img/rain.png");
   }
 
@@ -58,7 +58,7 @@ class Scene2 extends Phaser.Scene {
 
     this.add
       .image(650, 975, "確認")
-      .setScale(0.4) // 0.3倍
+      .setScale(1) // 0.3倍
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.checkAnswer();

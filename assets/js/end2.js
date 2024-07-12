@@ -1,21 +1,21 @@
-class Next10 extends Phaser.Scene {
+class End2 extends Phaser.Scene {
   constructor() {
-    super({ key: "Next10" });
+    super({ key: "End2" });
     this.button = null;
     this.start = null;
   }
 
   preload() {
-    this.load.image("next10", "assets/img/next10.png");
-    this.load.image("next0", "assets/img/next0.png");
+    this.load.image("end2", "assets/img/end2.png");
+    this.load.image("back", "assets/img/返回鍵.png");
   }
 
   create() {
-    this.add.image(0, 0, "next10").setOrigin(0, 0); //將中心點訂為左上角
+    this.add.image(0, 0, "end2").setOrigin(0, 0); //將中心點訂為左上角
     // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
-      .image(1400, 800, "next0")
-      .setScale(0.3)
+      .image(500, 725, "back")
+      .setScale(0.5)
       .setOrigin(0, 0)
       .setInteractive();
 
@@ -24,7 +24,7 @@ class Next10 extends Phaser.Scene {
       // 刪除背景
       //this.background.destroy();
       // 切換到 Scene1
-      this.scene.start("End1");
+      this.scene.start("Start");
     });
   }
 }
