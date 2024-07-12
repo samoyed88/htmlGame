@@ -4,7 +4,7 @@ class Scene9 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("background9", "assets/img/background9.png");
+    this.load.image("background9", "assets/img/background9-box.png");
   }
 
   create() {
@@ -15,11 +15,11 @@ class Scene9 extends Phaser.Scene {
 
     // 創建顯示輸入密碼的文本
     this.inputText = this.add
-      .text(750, 900, "", { fontSize: "48px", color: "#000" })
+      .text(750, 100, "", { fontSize: "64px", color: "#000" })
       .setOrigin(0.5);
 
     this.messageText = this.add
-      .text(750, 1000, "", { fontSize: "24px", color: "#000" })
+      .text(750, 150, "", { fontSize: "24px", color: "#000" })
       .setOrigin(0.5);
 
     // 初始化用戶輸入的密碼
@@ -41,6 +41,7 @@ class Scene9 extends Phaser.Scene {
         .text(0, 0, number, {
           fontSize: "60px", // 調整這裡以改變數字大小
           color: "#000",
+          fontStyle: "bold", // 添加字體樣式為加粗
         })
         .setInteractive()
         .on("pointerdown", () => this.addNumberToInput(number));
@@ -52,8 +53,8 @@ class Scene9 extends Phaser.Scene {
       height: 3,
       cellWidth: 150,
       cellHeight: 150,
-      x: 600,
-      y: 450,
+      x: 425,
+      y: 600,
     });
   }
 
@@ -78,14 +79,18 @@ class Scene9 extends Phaser.Scene {
 
   checkPassword() {
     if (this.userInput === this.password) {
-      this.messageText.setText("密碼正確，進入下一關！").setColor("green");
+      this.messageText
+        .setText("密碼正確，進入下一關！")
+        .setColor("green")
+        .setFontStyle("bold");
       this.time.delayedCall(1000, () => {
         this.scene.start("Next9");
       });
     } else {
       this.messageText
         .setText("密碼錯誤，正確密碼為：" + this.password)
-        .setColor("red");
+        .setColor("red")
+        .setFontStyle("bold");
       this.time.delayedCall(2000, () => {
         this.messageText.setText("");
         this.userInput = "";
