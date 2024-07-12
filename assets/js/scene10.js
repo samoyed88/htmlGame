@@ -15,8 +15,8 @@ class Scene10 extends Phaser.Scene {
     this.add.image(0, 0, "background10").setOrigin(0, 0);
 
     let positions = [
-      { x: 400, y: 370 },
-      { x: 900, y: 370 },
+      { x: 400, y: 400 },
+      { x: 900, y: 400 },
       { x: 400, y: 820 },
       { x: 900, y: 820 },
     ];
