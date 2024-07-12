@@ -17,8 +17,8 @@ class Scene10 extends Phaser.Scene {
 
     // 定義四個位置
     let positions = [
-      { x: 400, y: 370 },
-      { x: 900, y: 370 },
+      { x: 400, y: 400 },
+      { x: 900, y: 400 },
       { x: 400, y: 820 },
       { x: 900, y: 820 },
     ];
