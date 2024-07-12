@@ -22,7 +22,7 @@ class Instructions extends Phaser.Scene {
       // 刪除背景
       //this.background.destroy();
       // 切換到 Scene1
-      this.scene.start("Introduce1");
+      this.scene.start("Map");
     });
   }
 }
