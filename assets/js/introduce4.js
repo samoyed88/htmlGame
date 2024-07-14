@@ -6,7 +6,7 @@ class Introduce4 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("ins4", "assets/img/ins4.png");
+    this.load.image("ins4", "assets/img/ins4-4.png");
     this.load.image("next", "assets/img/next.png");
   }
 
