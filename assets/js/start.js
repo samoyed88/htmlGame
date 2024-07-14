@@ -9,7 +9,6 @@ class Start extends Phaser.Scene {
   }
 
   create() {
-    //postData(null,null,'6b8e64829e4c9e24745cefe4fcff5d7e3d9edd421055982d48af18753c0837e6',null,null);
     this.add.image(0, 0, "back-start").setOrigin(0, 0);
     // 创建开始游戏按钮
     this.add
@@ -22,6 +21,14 @@ class Start extends Phaser.Scene {
   }
 
   startGame() {
+    // 調用postData函數
+    postData(
+      null,
+      null,
+      "6b8e64829e4c9e24745cefe4fcff5d7e3d9edd421055982d48af18753c0837e6",
+      null,
+      null
+    );
     this.scene.start("Instructions");
   }
 }
