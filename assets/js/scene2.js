@@ -103,7 +103,7 @@ class Scene2 extends Phaser.Scene {
 
   // 創建彈出視窗
   createPopup() {
-    this.popup = this.add.container(400, 300);
+    this.popup = this.add.container(675, 600);
     let popupBackground = this.add.graphics();
     popupBackground.fillStyle(0x00ffff, 0.8);
     popupBackground.fillRect(-150, -100, 300, 200);
