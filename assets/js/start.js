@@ -29,6 +29,6 @@ class Start extends Phaser.Scene {
       null,
       null
     );
-    this.scene.start("Instructions");
+    this.scene.start("Book");
   }
 }
