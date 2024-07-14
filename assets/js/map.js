@@ -14,8 +14,8 @@ class Map extends Phaser.Scene {
     this.add.image(0, 0, "map").setOrigin(0, 0); //將中心點訂為左上角
     // 加載 "下一步" 圖片並設置為可點擊
     this.button = this.add
-      .image(900, 900, "next")
-      .setScale(0.47)
+      .image(1700, 925, "next")
+      .setScale(0.12)
       .setOrigin(0, 0)
       .setInteractive();
 
