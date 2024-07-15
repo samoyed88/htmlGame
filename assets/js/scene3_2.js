@@ -13,11 +13,10 @@ class Scene3_2 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background3").setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background3").setOrigin(0, 0);
 
-    let correctAnswer = "giraffe"; // 正確答案的 key
+    let correctAnswer = "giraffe";
 
-    // 定義四個位置
     let positions = [
       { x: 450, y: 420 },
       { x: 875, y: 420 },
@@ -25,10 +24,8 @@ class Scene3_2 extends Phaser.Scene {
       { x: 875, y: 820 },
     ];
 
-    // 打亂位置數組
     this.shuffleArray(positions);
 
-    // 白色區域顯示四張圖片，並分配隨機位置
     let options = [
       { key: "cat", x: positions[0].x, y: positions[0].y },
       { key: "monkey", x: positions[1].x, y: positions[1].y },
@@ -36,7 +33,7 @@ class Scene3_2 extends Phaser.Scene {
       { key: "giraffe", x: positions[3].x, y: positions[3].y },
     ];
 
-    this.add.image(650, 125, "b-giraffe").setScale(0.25); // 題目圖片
+    this.add.image(650, 125, "b-giraffe").setScale(0.25);
 
     let optionImages = [];
 
@@ -48,14 +45,13 @@ class Scene3_2 extends Phaser.Scene {
       optionImage.on("pointerdown", () => {
         this.checkAnswer(option.key);
       });
-      optionImages.push(optionImage); // 将创建的图片对象添加到数组中
+      optionImages.push(optionImage);
     });
 
     this.checkAnswer = function (selectedKey) {
       if (selectedKey === correctAnswer) {
-        this.scene.start("Next3"); // 如果答案正确，进入下一个场景
+        this.scene.start("Next3");
       } else {
-        // 如果答案错误，找到错误的选项图片并销毁
         let wrongOption = optionImages.find(
           (img) => img.texture.key === selectedKey
         );
@@ -66,7 +62,6 @@ class Scene3_2 extends Phaser.Scene {
     };
   }
 
-  // 打亂數組的函數
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

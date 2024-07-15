@@ -17,10 +17,8 @@ class Scene2 extends Phaser.Scene {
   }
 
   create() {
-    // 加載背景圖片
-    this.add.image(0, 0, "background2").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background2").setOrigin(0, 0);
     this.add.image(600, 80, "rain");
-    // 定義六個位置
     let positions = [
       { x: 280, y: 400 },
       { x: 650, y: 400 },
@@ -30,10 +28,8 @@ class Scene2 extends Phaser.Scene {
       { x: 1020, y: 750 },
     ];
 
-    // 打亂位置數組
     this.shuffleArray(positions);
 
-    // 白色區域顯示四張圖片，並分配隨機位置
     let items = [
       { key: "雨傘", x: positions[0].x, y: positions[0].y },
       { key: "雨衣", x: positions[1].x, y: positions[1].y },
@@ -43,10 +39,8 @@ class Scene2 extends Phaser.Scene {
       { key: "電鍋", x: positions[5].x, y: positions[5].y },
     ];
 
-    // 用於儲存玩家選擇的物品
     this.selectedItems = [];
 
-    // 加載和顯示每個物品，並使它們可點擊
     items.forEach((item) => {
       let obj = this.add.image(item.x, item.y, item.key).setInteractive();
       obj.setScale(0.3);
@@ -58,42 +52,34 @@ class Scene2 extends Phaser.Scene {
 
     this.add
       .image(650, 975, "確認")
-      .setScale(1) // 0.3倍
+      .setScale(1)
       .setInteractive({ useHandCursor: true })
       .on("pointerup", () => {
         this.checkAnswer();
       });
 
-    // 創建彈出視窗
     this.createPopup();
   }
 
-  // 切換物品選擇狀態
   toggleSelection(item) {
     if (this.selectedItems.includes(item.getData("name"))) {
-      // 如果已選擇則取消選擇
       this.selectedItems = this.selectedItems.filter(
         (i) => i !== item.getData("name")
       );
-      item.setTint(0xffffff); // 恢復原色
+      item.setTint(0xffffff);
     } else {
-      // 如果未選擇則選擇
       this.selectedItems.push(item.getData("name"));
-      item.setTint(808080); // 設置為選中顏色
+      item.setTint(808080);
     }
   }
 
-  // 檢查答案
   checkAnswer() {
-    // 正確答案
     let correctItems = ["雨傘", "雨衣"];
 
-    // 檢查選擇的物品是否正確
     let isCorrect =
       correctItems.every((item) => this.selectedItems.includes(item)) &&
       this.selectedItems.length === correctItems.length;
 
-    // 顯示結果
     if (isCorrect) {
       this.scene.start("Next2");
     } else {
@@ -101,7 +87,6 @@ class Scene2 extends Phaser.Scene {
     }
   }
 
-  // 創建彈出視窗
   createPopup() {
     this.popup = this.add.container(675, 600);
     let popupBackground = this.add.graphics();
@@ -119,7 +104,6 @@ class Scene2 extends Phaser.Scene {
     this.popupText = popupText;
   }
 
-  // 顯示彈出視窗
   showPopup(message) {
     this.popupText.setText(message);
     this.popup.setVisible(true);
@@ -133,7 +117,6 @@ class Scene2 extends Phaser.Scene {
     );
   }
 
-  // 打亂數組的函數
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

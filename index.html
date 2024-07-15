@@ -59,10 +59,10 @@
           width: 1920,
           height: 1080,
         },
-        pixelArt: false, // 关闭像素化以启用抗锯齿
+        pixelArt: false,
         render: {
-          antialias: true, // 启用抗锯齿
-          antialiasGL: true, // 启用WebGL抗锯齿
+          antialias: true,
+          antialiasGL: true,
         },
         physics: {
           default: "arcade",
@@ -119,7 +119,7 @@
 
       function resize() {
         var canvas = document.querySelector("canvas");
-        if (!canvas) return; // 確保 canvas 元素存在
+        if (!canvas) return;
         var windowWidth = window.innerWidth;
         var windowHeight = window.innerHeight;
         var windowRatio = windowWidth / windowHeight;

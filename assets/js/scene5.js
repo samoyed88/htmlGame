@@ -19,29 +19,26 @@ class Scene5 extends Phaser.Scene {
     this.cards = [];
     this.selectedCards = [];
 
-    // Create pairs of cards
     for (let key of fruitKeys) {
       this.cards.push({ key: key, matched: false });
       this.cards.push({ key: key, matched: false });
     }
 
-    // Shuffle the cards
     Phaser.Utils.Array.Shuffle(this.cards);
 
-    const columns = 4; // 每行排列的卡片数量
-    const imageWidth = 150; // 卡片宽度
-    const imageHeight = 150; // 卡片高度
-    const offsetX = 220; // 第一列右移的距离
-    const offsetY = 325; // 第一行下移的距离
-    const spacingX = 150; // 卡片之间的水平间距
-    const spacingY = 150; // 卡片之间的垂直间距
+    const columns = 4;
+    const imageWidth = 150;
+    const imageHeight = 150;
+    const offsetX = 220;
+    const offsetY = 325;
+    const spacingX = 150;
+    const spacingY = 150;
 
-    // Display the cards with adjusted spacing
     for (let i = 0; i < this.cards.length; i++) {
       let card = this.cards[i];
-      let x = offsetX + (i % columns) * (imageWidth + spacingX); // 设置X坐标
+      let x = offsetX + (i % columns) * (imageWidth + spacingX);
       let y =
-        offsetY + 150 + Math.floor(i / columns) * (imageHeight + spacingY); // 设置Y坐标
+        offsetY + 150 + Math.floor(i / columns) * (imageHeight + spacingY);
 
       card.sprite = this.add
         .sprite(x, y, "cardBack")
@@ -49,7 +46,6 @@ class Scene5 extends Phaser.Scene {
         .setInteractive();
       card.isFlipped = false;
 
-      // Add click event to flip the card
       card.sprite.on("pointerup", () => {
         this.flipCard(card);
       });
@@ -87,10 +83,8 @@ class Scene5 extends Phaser.Scene {
   }
 
   checkForWin() {
-    // Check if all cards are matched
     const allMatched = this.cards.every((card) => card.matched);
     if (allMatched) {
-      // Switch to the new scene
       this.time.delayedCall(1000, () => {
         this.scene.start("Next5");
       });

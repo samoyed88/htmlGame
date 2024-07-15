@@ -8,12 +8,10 @@ class Scene9 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background9").setOrigin(0, 0); // 將中心點設為左上角
+    this.add.image(0, 0, "background9").setOrigin(0, 0);
 
-    // 從 registry 中獲取四位數密碼
     this.password = this.registry.get("password");
 
-    // 創建顯示輸入密碼的文本
     this.inputText = this.add
       .text(750, 100, "", { fontSize: "64px", color: "#000" })
       .setOrigin(0.5);
@@ -22,13 +20,10 @@ class Scene9 extends Phaser.Scene {
       .text(750, 150, "", { fontSize: "24px", color: "#000" })
       .setOrigin(0.5);
 
-    // 初始化用戶輸入的密碼
     this.userInput = "";
 
-    // 初始化 optionsGroup
     this.optionsGroup = this.add.group();
 
-    // 顯示九個數字按鈕
     this.displayOptions();
   }
 
@@ -39,13 +34,13 @@ class Scene9 extends Phaser.Scene {
     numbers.forEach((number) => {
       let option = this.add
         .text(0, 0, number, {
-          fontSize: "60px", // 調整這裡以改變數字大小
+          fontSize: "60px",
           color: "#000",
-          fontStyle: "bold", // 添加字體樣式為加粗
+          fontStyle: "bold",
         })
         .setInteractive()
         .on("pointerdown", () => this.addNumberToInput(number));
-      this.optionsGroup.add(option); // 添加數字按鈕到 optionsGroup
+      this.optionsGroup.add(option);
     });
 
     Phaser.Actions.GridAlign(this.optionsGroup.getChildren(), {
@@ -70,7 +65,6 @@ class Scene9 extends Phaser.Scene {
       this.userInput += num;
       this.inputText.setText(this.userInput);
 
-      // 檢查密碼長度是否達到四位
       if (this.userInput.length === 4) {
         this.checkPassword();
       }

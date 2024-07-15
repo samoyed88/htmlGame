@@ -10,13 +10,12 @@ class Scene6 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background6").setOrigin(0, 0); // 将中心点定为左上角
+    this.add.image(0, 0, "background6").setOrigin(0, 0);
     this.currentLight = "red";
     this.switchToRedLight();
 
-    // 設置定時器每秒切換一次燈號
     this.time.addEvent({
-      delay: 1000, // 每隔一秒觸發一次
+      delay: 1000,
       loop: true,
       callback: () => {
         if (this.currentLight === "red") {
@@ -40,9 +39,8 @@ class Scene6 extends Phaser.Scene {
   }
 
   switchToGreenLight() {
-    // 移動綠燈到紅燈右邊的位置
-    const redLightWidth = this.redLight.width * 0.2; // 紅燈的寬度
-    const greenLightX = this.redLight.x + redLightWidth + 180; // 20 是紅燈和綠燈之間的距離，可根據需要調整
+    const redLightWidth = this.redLight.width * 0.2;
+    const greenLightX = this.redLight.x + redLightWidth + 180;
     this.greenLight = this.add
       .image(greenLightX, 500, "greenLight")
       .setScale(0.28)
@@ -53,9 +51,8 @@ class Scene6 extends Phaser.Scene {
       this.redLight = null;
     }
 
-    // 點擊事件
     this.greenLight.on("pointerup", () => {
-      this.scene.start("Next6"); // 切換到下一個場景
+      this.scene.start("Next6");
     });
   }
 }

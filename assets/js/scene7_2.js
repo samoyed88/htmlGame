@@ -11,7 +11,7 @@ class Scene7_2 extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "background7").setOrigin(0, 0); //将中心点定为左上角
+    this.add.image(0, 0, "background7").setOrigin(0, 0);
     this.add.image(500, 110, "small");
     const a = Math.floor(Math.random() * 99 + 1);
     const b = Math.floor(Math.random() * 99 + 1);
@@ -30,11 +30,13 @@ class Scene7_2 extends Phaser.Scene {
       .image(0, 0, "aImg")
       .setScale(0.5)
       .setInteractive({ useHandCursor: true });
-    const aText = this.add.text(0, 0, a, {
-      fontSize: "150px",
-      color: "#000000",
-      align: "center"
-    }).setOrigin(0.45);
+    const aText = this.add
+      .text(0, 0, a, {
+        fontSize: "150px",
+        color: "#000000",
+        align: "center",
+      })
+      .setOrigin(0.45);
 
     aContainer.add([aImage, aText]);
 
@@ -43,18 +45,20 @@ class Scene7_2 extends Phaser.Scene {
       .image(0, 0, "bImg")
       .setScale(0.5)
       .setInteractive({ useHandCursor: true });
-    const bText = this.add.text(0, 0, b, {
-      fontSize: "150px",
-      color: "#000000",
-      align: "center"
-    }).setOrigin(0.45);
+    const bText = this.add
+      .text(0, 0, b, {
+        fontSize: "150px",
+        color: "#000000",
+        align: "center",
+      })
+      .setOrigin(0.45);
 
     bContainer.add([bImage, bText]);
 
     this.add.text(900, 60, question, {
       fontSize: "110px",
       color: "#000000",
-      fontStyle: "bold"
+      fontStyle: "bold",
     });
 
     aImage.on("pointerup", () => {

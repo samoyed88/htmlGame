@@ -10,7 +10,6 @@ class Start extends Phaser.Scene {
 
   create() {
     this.add.image(0, 0, "back-start").setOrigin(0, 0);
-    // 创建开始游戏按钮
     this.add
       .image(950, 750, "start")
       .setScale(0.8)
@@ -21,7 +20,6 @@ class Start extends Phaser.Scene {
   }
 
   startGame() {
-    // 調用postData函數
     postData(
       null,
       null,

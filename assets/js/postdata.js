@@ -17,7 +17,7 @@ function postData(RecordID, Token, GameID, GameLevel, Status) {
 
   $.ajax({
     type: "GET",
-    url: `${domain}ApiPostGameData/${base64Data}`,
+    url: `${domain}TestApiPostGameData/${base64Data}`,
     async: false,
     beforeSend: function (jqXHR) {
       jqXHR.setRequestHeader("Authorization", "Bearer " + Data);
